@@ -1,24 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Homepage from "./pages/Homepage";
+import Aboutus from "./pages/Aboutus";
+import Services from "./pages/Services";
+
+import Contactpage from "./pages/Contactpage";
+import CommonServices from "./pages/CommonServices";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router
+      className=""
+      style={{
+        background: "linear-gradient(to top, #8BB3F9,#FFE2EA,#8BB3F9,#FFE2EA)",
+      }}
+    >
+      {/* <Navbar /> */}
+      <Routes>
+        <Route path="/" element={<Homepage />} />
+        <Route path="/about" element={<Aboutus />} />
+        <Route path="/services" element={<Services />} />
+        <Route path="/contact" element={<Contactpage />} />
+        <Route path="/commonservice" element={<CommonServices />} />
+      </Routes>
+    </Router>
   );
 }
 

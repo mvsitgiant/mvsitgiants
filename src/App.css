@@ -1,38 +1,124 @@
-.App {
-  text-align: center;
+
+
+
+
+.myheading{
+line-height: normal;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Default for large devices (desktops) */
+.conplr {
+  padding-left: 7rem;
+  padding-right: 7rem;
+}
+.conmlr {
+  margin-left: 7rem;
+  margin-right: 7rem;
+}
+.conpl {
+  padding-left: 7rem;
+}
+.conpr {
+  padding-right: 7rem;
+}
+.conml {
+  margin-left: 7rem;
+}
+.conmr {
+  margin-right: 7rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+/* Medium devices (tablets, 768px and up) */
+@media (max-width: 1024px) {
+  .conplr {
+    padding-left: 5rem;
+    padding-right: 5rem;
+  }
+  .conmlr {
+    margin-left: 5rem;
+    margin-right: 5rem;
+  }
+  .conpl {
+    padding-left: 5rem;
+  }
+  .conpr {
+    padding-right: 5rem;
+  }
+  .conml {
+    margin-left: 5rem;
+  }
+  .conmr {
+    margin-right: 5rem;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Small devices (large phones, 576px and up) */
+@media (max-width: 768px) {
+  .conplr {
+    padding-left: 3rem;
+    padding-right: 3rem;
   }
-  to {
-    transform: rotate(360deg);
+  .conmlr {
+    margin-left: 3rem;
+    margin-right: 3rem;
+  }
+  .conpl {
+    padding-left: 3rem;
+  }
+  .conpr {
+    padding-right: 3rem;
+  }
+  .conml {
+    margin-left: 3rem;
+  }
+  .conmr {
+    margin-right: 3rem;
+  }
+}
+
+/* Extra small devices (phones, less than 576px) */
+@media (max-width: 576px) {
+  .conplr {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+  .conmlr {
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+  }
+  .conpl {
+    padding-left: 1.5rem;
+  }
+  .conpr {
+    padding-right: 1.5rem;
+  }
+  .conml {
+    margin-left: 1.5rem;
+  }
+  .conmr {
+    margin-right: 1.5rem;
+  }
+}
+/* Large devices with 1920px width and 1020px height */
+@media (min-width: 1920px) and (min-height: 1020px) {
+  .conplr {
+    padding-left: 8rem;
+    padding-right: 8rem;
+  }
+  .conmlr {
+    margin-left: 8rem;
+    margin-right: 8rem;
+  }
+  .conpl {
+    padding-left: 8rem;
+  }
+  .conpr {
+    padding-right: 8rem;
+  }
+  .conml {
+    margin-left: 8rem;
+  }
+  .conmr {
+    margin-right: 8rem;
   }
 }
