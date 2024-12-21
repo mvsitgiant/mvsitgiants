@@ -122,3 +122,23 @@ line-height: normal;
     margin-right: 8rem;
   }
 }
+
+
+/* General Styles */
+.logo {
+  max-width: 70px; /* Adapts based on container size */
+  height: auto;   /* Maintains aspect ratio */
+}
+
+/* Fine-tune for specific breakpoints */
+@media (min-width: 1024px) {
+  .logo {
+    max-width: 70px; /* Smaller logo for desktop */
+  }
+}
+
+@media (max-width: 767px) {
+  .logo {
+    max-width: 50px; /* Larger logo for smaller screens */
+  }
+}

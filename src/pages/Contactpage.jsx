@@ -60,7 +60,7 @@ const Contactpage = () => {
                   />
                 </svg>
                 <h5 className=" text-base font-normal leading-6 ml-5">
-                  mediocre@gmail.com
+                  mvsItGiants@gmail.com
                 </h5>
               </Link>
               <Link to="/" className="flex items-center">
@@ -364,7 +364,7 @@ const Contactpage = () => {
                           />
                         </svg>
                         <h5 className="text-black text-base font-normal leading-6 ml-5">
-                          mediocre@gmail.com
+                          mvsItGiants@gmail.com
                         </h5>
                       </Link>
                       <Link to="/" className="flex items-center">

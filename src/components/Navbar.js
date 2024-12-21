@@ -7,40 +7,10 @@ import { servicesData } from "../config/config";
 import { IoIosArrowDropdownCircle } from "react-icons/io";
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [hoveredId, setHoveredId] = useState(false);
   const [serviceVisiable, setServiceVisiable] = useState("");
-  const [linkcolor, setlinkcolor] = useState(1);
-  const [Sublink, setSubLink] = useState([
-    {
-      id: 1,
-      url: "#",
-      text: "Data Science",
-      data: "Our Data Science experts will turn raw data into actionable insights that drive growth and innovation.",
-    },
-    {
-      id: 2,
-      url: "#",
-      text: "Generative AI",
-      data: "Our GenAI experts will help you use GenAI to address diverse business challenges with deep expertise.",
-    },
-    {
-      id: 3,
-      url: "#",
-      text: "Conversational AI",
-      data: "Our experts develop Conversational AI solutions to boost efficiency and deliver exceptional customer experiences.",
-    },
-    {
-      id: 4,
-      url: "#",
-      text: "ML and MLOps",
-      data: "We unlock ML's potential through MLOps by streamlining workflows, optimizing resources, and mitigating risks.",
-    },
-    {
-      id: 5,
-      url: "#",
-      text: "AI Software Development",
-      data: "Our AI/ML engineers turn your vision into reality with cloud-native development and advanced expertise.",
-    },
-  ]);
+  const [linkcolor, setlinkcolor] = useState();
+
   function classNames(...classes) {
     return classes.filter(Boolean).join(" ");
   }
@@ -48,31 +18,29 @@ export default function Navbar() {
   const navigation = useNavigate();
 
   return (
-    <div className=" relative max-w-[1366px] ">
-      <header className="bg-white  z-50 sm:fixed  w-full ">
+    <div className=" relative  ">
+      <header className="bg-[#F0F0F0]  z-50 sm:fixed  w-full ">
         <nav
           aria-label="Global"
-          className="conplr flex items-center lg:gap-x-[500px] gap-x-[100px] [1366px]:gap-x-[500px] md:gap-x-[450px]  h-20"
+          className="conplr flex items-center justify-between  h-20"
         >
           <div className="flex flex-shrink-0">
             <Link
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
               to="/"
-              className="-m-1.5 p-1.5"
+              // className="sm-1.5 p-1.5"
             >
               <span className="sr-only">Your Company</span>
-              <h1
-                className={`text-5xl font-bold bg-gradient-to-r from-lgfirstcolor via-lgsecondcolor to-lgsecondcolor inline-block bg-clip-text text-transparent font-rancho`}
-              >
-                oneO8.tech
-              </h1>
+
+              <img src="/assets/logomvs.png" alt="logo" className="logo" />
             </Link>
           </div>
+
           <div className="lg:hidden">
             <button
               type="button"
               onClick={() => setMobileMenuOpen(true)}
-              className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
+              className="m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
             >
               <span className="sr-only">Open main menu</span>
               <Bars3Icon aria-hidden="true" className="h-6 w-6" />
@@ -82,7 +50,7 @@ export default function Navbar() {
             <Link
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
               to="/"
-              className="text-sm leading-6 group font-medium text-navfontcolor relative hover:text-hovnavfontcolor focus:text-hovnavfontcolor "
+              className="text-sm leading-6 group font-semibold text-navfontcolor relative hover:text-hovnavfontcolor focus:text-hovnavfontcolor "
             >
               Home
               <span className="absolute -bottom-1 left-0 w-0 transition-all h-0.5 bg-hovnavfontcolor group-hover:w-full "></span>
@@ -90,7 +58,7 @@ export default function Navbar() {
             <div className="relative group">
               <Link
                 to="/services"
-                className="text-sm leading-6 font-medium text-navfontcolor relative hover:text-hovnavfontcolor focus:text-hovnavfontcolor p-2"
+                className="text-sm leading-6 font-semibold text-navfontcolor relative hover:text-hovnavfontcolor focus:text-hovnavfontcolor p-2"
               >
                 Services
                 <span className="absolute -bottom-1 left-0 w-0 transition-all duration-300 ease-in-out h-0.5 bg-hovnavfontcolor group-hover:w-full"></span>
@@ -102,48 +70,44 @@ export default function Navbar() {
                   backgroundImage: `linear-gradient(to right, #FFFFFF, #DEDFF6EC,#EDF4FF), url("/assets/hoverimagebg.png")`,
                   backgroundSize: "cover",
                   backgroundPosition: "center",
-                  width: "1050px",
-                  left: "-740px",
+                  width: "1300px",
+                  left: "-840px",
                 }}
               >
-                <div className="h-auto w-full">
-                  <div className="flex">
-                    <div className="flex flex-col border-r-2 border-black w-[22%]">
+                <div className="h-auto w-full conplr">
+                  <div className="flex w-full">
+                    <div className="flex flex-wrap w-full">
                       {servicesData.map((item, index) => (
                         <div
                           key={index}
-                          className="font-normal pb-3 cursor-pointer focus:text-hovnavfontcolor flex gap-5 justify-between pr-2"
+                          className="w-1/3 p-4 flex items-center justify-center group"
                           onClick={() => {
-                            setSubLink(item.subLink);
+                           
                             setlinkcolor(item.id);
+                            navigation(item.url, { state: { sublink: item.subLink, name: item.name } });
                           }}
-                          style={{
-                            color: linkcolor === item.id ? "#F1245B" : "black",
-                          }}
+                          onMouseEnter={() => setHoveredId(item.id)}
+                          onMouseLeave={() => setHoveredId(null)}
                         >
-                          <p className="font-normal text-sm pb-[27px] hover:text-hovnavfontcolor pt-0.5">
-                            {item.name}
-                          </p>
-                        </div>
-                      ))}
-                    </div>
-                    <div className="grid grid-cols-1 md:grid-cols-3  gap-4 pl-10 w-[75%] text-left justify-center">
-                      {Sublink.map((link) => (
-                        <div
-                          key={link.id}
-                          className="rounded-lg text-left cursor-pointer"
-                          onClick={() => {
-                            navigation("/commonservice", {
-                              state: { link, Sublink },
-                            });
-                          }}
-                        >
-                          <a className="text-black hover:underline font-medium text-sm hover:text-hovnavfontcolor">
-                            {link.text}
-                          </a>
-                          <p className="text-[12px] font-normal py-5">
-                            {link.data}
-                          </p>
+                          <div
+                            className="w-full h-full p-3 border-transparent hover:border-2 group-hover:border-black"
+                            style={{
+                              borderColor:
+                                linkcolor === item.id || hoveredId === item.id
+                                  ? "#211da6e8"
+                                  : "transparent",
+                              borderWidth: 2,
+                              cursor: "pointer",
+                            }}
+                          >
+                            {item.icon}
+                            <p className="  text-sm text-h1color font-bold pt-2 ">
+                              {item.name}
+                            </p>
+                            <p className=" font-normal text-sm text-pcolor pt-2 ">
+                              {item.description}
+                            </p>
+                          </div>
                         </div>
                       ))}
                     </div>
@@ -152,12 +116,13 @@ export default function Navbar() {
               </div>
             </div>
 
+           
             <Link
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
               to="/about"
-              className="text-sm leading-6 group font-medium text-navfontcolor relative hover:text-hovnavfontcolor focus:text-hovnavfontcolor"
+              className="text-sm leading-6 group font-semibold text-navfontcolor relative hover:text-hovnavfontcolor focus:text-hovnavfontcolor"
             >
-              About
+              About Us
               <span className="absolute -bottom-1 left-0 w-0 transition-all h-0.5 bg-hovnavfontcolor group-hover:w-full"></span>
             </Link>
 
@@ -187,12 +152,8 @@ export default function Navbar() {
                 to="/"
                 className="-m-1.5 p-1.5"
               >
-                <span className="sr-only">Your Company</span>
-                <h1
-                  className={`text-3xl font-bold bg-gradient-to-r from-lgfirstcolor via-lgsecondcolor to-lgsecondcolor inline-block bg-clip-text text-transparent`}
-                >
-                  Mediocre
-                </h1>
+               <img src="/assets/logomvs.png" alt="logo" className="logo" />
+               
               </Link>
               <button
                 type="button"

@@ -6,12 +6,13 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import Footer from "../components/Footer";
 import { servicesData } from "../config/config";
 import { HiOutlineArrowNarrowRight } from "react-icons/hi";
+import Consulation from './../components/Consulation';
 
 const CommonServices = () => {
   const navigation = useNavigate();
   const location = useLocation();
   const data = location?.state;
-  const sublink = location.state.Sublink;
+  const { name, sublink } = data;
   console.log("routes", sublink);
   return (
     <div className="max-w-[1366px] mx-auto">
@@ -19,96 +20,54 @@ const CommonServices = () => {
         <Navbar />
       </div>
       <div>
-        <Commonheader namepage={data?.link?.text} />
+        <Commonheader namepage={name} />
       </div>
-      <div className="conplr pt-10 flex gap-x-5">
-        <div className="w-[70%]">
-          <div>
-            <img src="/assets/workers-5246640_1280.jpg" alt="hll" />
-          </div>
-          <h1 className="pt-5 font-semibold text-3xl">{data?.link?.text}</h1>
-          <p className="font-normal pt-5">
-            Transforming Data into Intelligence Harness the power of artificial
-            intelligence and machine learning to unlock new opportunities and
-            drive innovation. Our AI solutions are designed to enhance
-            decision-making, optimize operations, and deliver personalized
-            experiences. From predictive analytics to natural language
-            processing, we have the expertise to turn your data into actionable
-            insights.
-          </p>
-          <div className="flex py-10">
+      <div class="bg-white py-24 sm:py-32">
+        <div class="mx-auto max-w-7xl px-6 lg:px-8 conplr">
+          <div class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
             <div>
-              <img
-                src="/assets/commonpageservices.png"
-                className="max-w-sm"
-                alt=""
-              />
+              <h2 class="text-lg font-semibold leading-8 tracking-tight text-indigo-600">
+                MVS Solutions
+              </h2>
+              <p class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+                {name}
+              </p>
+              <p class="mt-6 text-base leading-7 text-gray-600">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                Maiores impedit perferendis suscipit eaque, iste dolor
+                cupiditate blanditiis ratione.
+              </p>
             </div>
-            <div className="flex flex-col gap-3 pl-3">
-              <h1 className="pb-5 font-semibold text-xl">
-                We are serve best work
-              </h1>
-              <div className="flex gap-x-0.5">
-                <img src="/assets/addicon.png" alt="" />
-                <p className="font-normal">
-                  Up am intention on dependent questions
-                </p>
-              </div>
-              <div className="flex gap-x-0.5">
-                <img src="/assets/addicon.png" alt="" />
-                <p className="font-normal">
-                  Up am intention on dependent questions
-                </p>
-              </div>
-              <div className="flex gap-x-0.5">
-                <img src="/assets/addicon.png" alt="" />
-                <p className="font-normal">
-                  Up am intention on dependent questions
-                </p>
-              </div>
-              <div className="flex gap-x-0.5">
-                <img src="/assets/addicon.png" alt="" />
-                <p className="font-normal">
-                  Up am intention on dependent questions
-                </p>
-              </div>
-            </div>
-          </div>
-          <div className="py-5">
-            <h1 className="font-semibold text-2xl py-10">
-              Benefits With Our Service
-            </h1>
-            <div className="flex gap-x-5">
-              <img src="/assets/commonpageservicesbenifite.png" alt="" />
-              <img src="/assets/commonpageservicesbenifite.png" alt="" />
-            </div>
-          </div>
-        </div>
-        <div className="">
-          <div className="bg-[#C5DCFF] p-5">
-            {" "}
-            <h1 className="text-xl font-semibold">Related Solutions</h1>
-            <div className="flex flex-col justify-between gap-5 py-10">
-              {sublink.map((item) => (
-                <div
-                  className="hover:bg-white flex justify-between items-center p-2 gap-x-5"
-                  // onClick={() => {
-                  //   navigation("/commonservice", {
-                  //     state: { link: item, sublink },
-                  //   });
-                  // }}
-                >
-                  <Link to={item?.url} className="font-normal  ">
-                    {item?.text}
-                    {console.log(item)}
-                  </Link>
-                  <HiOutlineArrowNarrowRight size={20} />
-                </div>
-              ))}
-            </div>
+            <dl class="col-span-2 grid grid-cols-1 gap-x-8 gap-y-10 text-base leading-7 text-gray-600 sm:grid-cols-2 lg:gap-y-16">
+              {sublink.map((data,index)=>(<div class="relative pl-9">
+                <dt class="font-semibold text-gray-900">
+                  <svg
+                    class="absolute top-1 left-0 h-5 w-5 text-indigo-500"
+                    x-description="Heroicon name: mini/check"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z"
+                      clip-rule="evenodd"
+                    ></path>
+                  </svg>
+                  {data.text}
+                </dt>
+                <dd class="mt-2">
+                 {data.data}
+                </dd>
+              </div>))}
+
+             
+            </dl>
           </div>
         </div>
       </div>
+      <Consulation/>
       <Footer />
     </div>
   );

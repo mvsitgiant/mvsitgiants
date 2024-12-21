@@ -29,11 +29,11 @@ const Aboutcompany = () => {
             // data-aos-easing="ease-out"
             // data-aos-duration="600"
           >
-            <div className="flex flex-col ">
+            <div className="flex flex-col mt-10 ">
               <img
-                src="/assets/Group 31.png"
+                src="/assets/Aboutushome.jpg"
                 alt=""
-                className="w-[2000px] h-[350px]"
+                className="w-[100%] h-auto"
               />
             </div>
           </div>

@@ -5,44 +5,9 @@ import { Dialog, DialogPanel } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { servicesData } from "./../config/config";
 import { IoIosArrowDropdownCircle } from "react-icons/io";
-// const links = [
-//   {
-//     id: 1,
-//     url: "#",
-//     text: "Website Development",
-//     data: "Enhance error handling to ensure the application can correctly display and react to any issues.",
-//   },
-//   {
-//     id: 2,
-//     url: "#",
-//     text: "Website Development",
-//     data: "Enhance error handling to ensure the application can correctly display and react to any issues.",
-//   },
-//   {
-//     id: 3,
-//     url: "#",
-//     text: "Website Development",
-//     data: "Enhance error handling to ensure the application can correctly display and react to any issues.",
-//   },
-//   {
-//     id: 4,
-//     url: "#",
-//     text: "Website Development",
-//     data: "Enhance error handling to ensure the application can correctly display and react to any issues.",
-//   },
-//   {
-//     id: 5,
-//     url: "#",
-//     text: "Website Development",
-//     data: "Enhance error handling to ensure the application can correctly display and react to any issues.",
-//   },
-//   {
-//     id: 6,
-//     url: "#",
-//     text: "Website Development",
-//     data: "Enhance error handling to ensure the application can correctly display and react to any issues.",
-//   },
-// ];
+import Navbar from "./Navbar";
+
+
 const Header = () => {
   const [width, setWidth] = useState(window.innerWidth);
   const navigation = useNavigate();
@@ -99,29 +64,31 @@ const Header = () => {
         width: "100%",
       }}
     >
+    <Navbar/>
       <div className="flex flex-col pt-5 ">
-        <div className="flex gap-x-[300px] items-center pb-10">
+        {/* <div className="flex justify-between  items-center pb-10">
           <div className="conpl">
-            <Link to="/" className="-m-1.5 p-1.5">
+            <Link to="/" className="m-1.5 p-1.5 ">
               <span className="sr-only">Your Company</span>
-              {/* <img src="/assets/logosvg.svg" alt="logo" /> */}
-              <h1 className="text-5xl  font-bold bg-gradient-to-r from-lgfirstcolor via-lgsecondcolor to-lgsecondcolor inline-block bg-clip-text text-transparent font-rancho">
-                oneO8.tech
-              </h1>
+              <img
+                src="/assets/logomvs.png"
+                alt="logo"
+                class="logo"
+              />
             </Link>
           </div>
           <div className="lg:hidden">
             <button
               type="button"
               onClick={() => setMobileMenuOpen(true)}
-              className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
+              className="m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
             >
               <span className="sr-only">Open main menu</span>
               <Bars3Icon aria-hidden="true" className="h-6 w-6" />
             </button>
           </div>
 
-          <div className="lg:flex gap-x-3 justify-end md:gap-x-5 pt-6 hidden">
+          <div className="lg:flex gap-x-3 justify-end md:gap-x-5  hidden">
             <div className="">
               <Link
                 to="/"
@@ -146,14 +113,14 @@ const Header = () => {
                   backgroundImage: `linear-gradient(to right, #FFFFFF, #DEDFF6EC,#EDF4FF), url("/assets/hoverimagebg.png")`,
                   backgroundSize: "cover",
                   backgroundPosition: "center",
-                  width: "1090px",
+             width:"1300px",
                   height: "auto",
-                  left: "-525px",
+                  left: "-560px",
                 }}
               >
-                <div className="h-auto w-full">
+                <div className="h-auto w-full conplr">
                   <div className="flex">
-                    <div className="flex flex-col border-r-2 border-black w-[22%]">
+                    <div className="flex flex-col border-r-2 border-black w-[25%]">
                       {servicesData.map((item, index) => (
                         <div
                           key={index}
@@ -207,26 +174,24 @@ const Header = () => {
               </Link>
             </div>
           </div>
-        </div>
+        </div> */}
 
-        <div className="flex flex-col lg:flex-row">
-          <div className="relative md:hidden flex justify-center flex-1  lg:mt-0 overflow-hidden w-auto lg:w-screen">
+        <div className="flex flex-col lg:flex-row mt-20">
+          {/* <div className="relative md:hidden flex justify-center flex-1  lg:mt-0 overflow-hidden w-auto lg:w-screen">
             <div className="relative flex justify-center lg:block">
-              <img src="/assets/homepages.png" alt="" className="" />
+              <img src="/assets/mvsithomemobile.png" alt="" className="" />
             </div>
-          </div>
-          <div className="flex flex-1 flex-col pt-10">
-            <div className="flex flex-col mt-16 lg:mt-10 px-2 lg:pr-12 lg:px-0 conpl">
+          </div> */}
+          <div className="flex flex-1 flex-col ">
+            <div className="flex flex-col   px-2 lg:pr-12 lg:px-0 conpl">
               <h1 className="font-poppinsh font-bold text-2xl md:text-4xl mb-3 md:mb-5 text-center lg:text-left leading-tight myheading">
-                Deploy AI/ML Models in 90% Less Time and Cost!
+               Turn your business ideas into real solutions!
               </h1>
 
               <p className="mb-3 text-navfontcolor font-poppinsh font-normal md:mb-5 text-sm md:text-base text-center lg:text-left py-4">
-                Built with enterprise scale and security, Datatron MLOps
-                integrates model development seamlessly with your existing CI/CD
-                process. Enabling businesses to deploy models securely and at
-                scale in 90% less time and cost compared to homegrown solutions!
+                We offer Software Development as a Service (SDaaS) for building web apps, mobile apps,marketing and innovative products for your business. Get custom solutions tailored to your business needs to help you grow and succeed.
               </p>
+             
               <div className="flex justify-center lg:justify-start pb-5">
                 <Link
                   to="/contact"
@@ -247,12 +212,12 @@ const Header = () => {
           <img
             src="/assets/homepageleftheader2.png"
             alt=""
-            className="rounded-full bg-gradient-to-r from-lgfirstcolor via-lgsecondcolor to-lgsecondcolor p-2 w-1/4 md:w-1/3 lg:w-1/3 2xl:w-1/4 h-auto absolute top-[5%] lg:top-[10%] lg:right-[10%] z-20"
+            className="rounded-full bg-gradient-to-r from-lgfirstcolor via-lgsecondcolor to-lgsecondcolor p-2 w-1/4 md:w-1/3 lg:w-1/3 2xl:w-1/4 h-auto absolute top-[5%] lg:top-[15%] lg:right-[10%] z-20"
           />
           <img
             src="/assets/homepageleftheader1.png"
             alt=""
-            className="w-[1900px] h-auto relative -top-12 -right-20 2xl:-top-20 2xl:-right-32"
+            className="w-[1800px] h-auto relative -top-12 -right-20 2xl:-top-20 2xl:-right-32"
           />
           <img
             src="/assets/homepageleftheader4.png"
@@ -278,7 +243,7 @@ const Header = () => {
             <Link to="/" className="-m-1.5 p-1.5">
               <span className="sr-only">Your Company</span>
               <h1 className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-lgfirstcolor via-lgsecondcolor to-lgsecondcolor inline-block bg-clip-text text-transparent">
-                Mediocre
+                mvsItGiants
               </h1>
             </Link>
             <button

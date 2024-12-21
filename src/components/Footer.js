@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./../App.css";
+import { servicesData, solutiondata } from "../config/config";
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   return (
@@ -11,6 +12,7 @@ const Footer = () => {
         backgroundPosition: "center",
         height: "auto",
         width: "100%",
+        marginTop:20
       }}
     >
       <section className="pt-16 pb-7 conplr ">
@@ -18,11 +20,11 @@ const Footer = () => {
           <div className="flex flex-col lg:flex-row gap-12 pb-14 border-b-2 border-gray-200 justify-between">
             <div className="flex flex-col gap-8 xl:gap-14 w-full lg:max-w-sm mx-auto ">
               <div className="flex flex-col gap-8">
-                <h1
-                  className={`text-3xl font-bold bg-gradient-to-r from-lgfirstcolor via-lgsecondcolor to-lgsecondcolor inline-block bg-clip-text text-transparent`}
-                >
-                  Mediocre
-                </h1>
+               <Link to="/" className="-m-1.5 p-1.5 ">
+              <span className="sr-only">Your Company</span>
+              <img src="/assets/logomvs.png" alt="logo" className="logo"/>
+             
+            </Link>
                 <p className="text-base font-normal pt-3 text-gray-500 max-[470px]:text-center">
                   We're a team of passionate IT specialists driven by a shareds
                   mission: to empower businesses through strategic technology.
@@ -150,94 +152,47 @@ const Footer = () => {
               </div>
             </div>
             <div className="w-full   flex flex-wrap min-[470px]:flex-row justify-between gap-5 sm:gap-5 md:gap-5 xl:gap-5">
-              <div className="flex flex-col max-[470px]:items-left max-[470px]:justify-left gap-6">
-                <h6 className="text-lg font-medium text-gray-900 mb-7 max-[470px]:text-center border-b-4 border-hovnavfontcolor ">
-                  Quick Links
+              <div className="flex flex-col max-[470px]:items-left max-[470px]:justify-left gap-3">
+                <h6 className="text-lg font-medium text-gray-900 mb-3 max-[470px]:text-center border-b-4 border-hovnavfontcolor ">
+               Services
                 </h6>
+              
 
-                <Link
+                {servicesData.map((data,index)=>(<Link
                   onClick={() =>
                     window.scrollTo({ top: 0, behavior: "smooth" })
                   }
                   to="/"
                   className="font-normal  leading-6 group   relative hover:text-hovnavfontcolor"
                 >
-                  Home
+                 {data?.name}
                   <span className="absolute -bottom-1 left-0 w-0 transition-all h-0.5 bg-hovnavfontcolor group-hover:w-full"></span>
-                </Link>
-                <Link
-                  onClick={() =>
-                    window.scrollTo({ top: 0, behavior: "smooth" })
-                  }
-                  to="/services"
-                  className="font-normal  leading-6 group   relative hover:text-hovnavfontcolor"
-                >
-                  Services
-                  <span className="absolute -bottom-1 left-0 w-0 transition-all h-0.5 bg-hovnavfontcolor group-hover:w-full"></span>
-                </Link>
-                <Link
-                  onClick={() =>
-                    window.scrollTo({ top: 0, behavior: "smooth" })
-                  }
-                  to="/about"
-                  className="font-normal  leading-6 group   relative hover:text-hovnavfontcolor"
-                >
-                  About
-                  <span className="absolute -bottom-1 left-0 w-0 transition-all h-0.5 bg-hovnavfontcolor group-hover:w-full"></span>
-                </Link>
+                </Link>))}
+               
               </div>
-              <div className="flex flex-col max-[470px]:items-center max-[470px]:justify-center gap-6">
-                <h6 className="text-lg font-medium text-gray-900 mb-7 max-[470px]:text-center border-b-4 border-hovnavfontcolor">
-                  Services
+              <div className="flex flex-col max-[470px]:items-center max-[470px]:justify-center gap-3">
+                <h6 className="text-lg font-medium text-gray-900 mb-3 max-[470px]:text-center border-b-4 border-hovnavfontcolor">
+                Solutions
                 </h6>
-                <Link
+                {solutiondata.map((data,index)=>(<Link
                   onClick={() =>
                     window.scrollTo({ top: 0, behavior: "smooth" })
                   }
                   to="/"
                   className="font-normal  leading-6 group   relative hover:text-hovnavfontcolor"
                 >
-                  Web developmet
+                  {data.name}
                   <span className="absolute -bottom-1 left-0 w-0 transition-all h-0.5 bg-hovnavfontcolor group-hover:w-full"></span>
-                </Link>
-                <Link
-                  onClick={() =>
-                    window.scrollTo({ top: 0, behavior: "smooth" })
-                  }
-                  to="/services"
-                  className="font-normal  leading-6 group   relative hover:text-hovnavfontcolor"
-                >
-                  App Development
-                  <span className="absolute -bottom-1 left-0 w-0 transition-all h-0.5 bg-hovnavfontcolor group-hover:w-full"></span>
-                </Link>
-                <Link
-                  onClick={() =>
-                    window.scrollTo({ top: 0, behavior: "smooth" })
-                  }
-                  to="/about"
-                  className="font-normal  leading-6 group   relative hover:text-hovnavfontcolor"
-                >
-                  Digital Marketing
-                  <span className="absolute -bottom-1 left-0 w-0 transition-all h-0.5 bg-hovnavfontcolor group-hover:w-full"></span>
-                </Link>
-                <Link
-                  onClick={() =>
-                    window.scrollTo({ top: 0, behavior: "smooth" })
-                  }
-                  to="/product"
-                  className="font-normal  leading-6 group   relative hover:text-hovnavfontcolor"
-                >
-                  Cloud Services
-                  <span className="absolute -bottom-1 left-0 w-0 transition-all h-0.5 bg-hovnavfontcolor group-hover:w-full"></span>
-                </Link>
+                </Link>))}
+              
               </div>
               <div className=" flex flex-col sm:justify-left items-start sm:pt-0 pt-10 sm:items-start">
-                <h6 className="text-lg font-medium text-gray-900 mb-12 max-[470px]:text-center border-b-4 border-hovnavfontcolor">
-                  Contact
+                <h6 className="text-lg font-medium text-gray-900 mb-5 max-[470px]:text-center border-b-4 border-hovnavfontcolor">
+                  Contact Us
                 </h6>
-                <h1 className="font-normal leading-6 mb-7">6294467292</h1>
-                <h1 className="font-normal leading-6 mb-7">
-                  info@mediocre.com
+                <h1 className="font-normal leading-6 mb-3">6294467292</h1>
+                <h1 className="font-normal leading-6 mb-3">
+                  info@mvsItGiants.com
                 </h1>
                 <h1 className="font-normal leading-6 mb-7">
                   Bengalore, karnataka
@@ -248,7 +203,7 @@ const Footer = () => {
         </div>
       </section>
       <div className="mt-4 bg-[#232537] flex flex-col sm:flex-row justify-center items-center text-white p-3 font-medium text-xl">
-        <p>&copy; {currentYear} Mediocre. All rights reserved.</p>
+        <p>&copy; {currentYear} mvsItGiants. All rights reserved.</p>
       </div>
     </div>
   );

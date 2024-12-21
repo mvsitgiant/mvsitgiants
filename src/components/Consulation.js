@@ -2,11 +2,11 @@ import React from "react";
 import "./../App.css";
 const Consulation = () => {
   return (
-    <div className="flex md:mt-28 flex-col lg:flex-row bg-[#C5DCFF] conmlr rounded-md">
+    <div className="flex md:mt-10 flex-col lg:flex-row bg-[#C5DCFF] conmlr rounded-md ">
       <div className="relative mt-5 lg:mt-0 flex justify-center lg:justify-start md:justify-center">
         <div className="relative">
           <img
-            src="/assets/consulationpart.png"
+            src="/assets/aboutusbackgroundhero.png"
             alt=""
             className="h-72 w-[700px]"
           />
