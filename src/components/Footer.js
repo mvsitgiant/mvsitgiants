@@ -26,17 +26,15 @@ const Footer = () => {
              
             </Link>
                 <p className="text-base font-normal pt-3 text-gray-500 max-[470px]:text-center">
-                  We're a team of passionate IT specialists driven by a shareds
-                  mission: to empower businesses through strategic technology.
-                  We don't just more build
+                  We are a leading IT software development company specializing in custom software solutions, web applications, and mobile development.
                 </p>
                 <div className="flex items-center max-[470px]:justify-center gap-5">
                   <Link
                     onClick={() =>
                       window.scrollTo({ top: 0, behavior: "smooth" })
                     }
-                    to="/"
-                    className="p-2 text-black rounded transition-all duration-500"
+                    to="https://x.com/mvsitgiants"
+                    className="p-2 text-iconcolor rounded transition-all duration-500"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -55,8 +53,8 @@ const Footer = () => {
                     onClick={() =>
                       window.scrollTo({ top: 0, behavior: "smooth" })
                     }
-                    to="/"
-                    className="p-2 h-10 w-10 flex items-center justify-center text-black rounded transition-all duration-500 "
+                    to="https://www.instagram.com/mvsitgiants/"
+                    className="p-2 h-10 w-10 flex items-center justify-center text-iconcolor rounded transition-all duration-500 "
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -107,8 +105,8 @@ const Footer = () => {
                     onClick={() =>
                       window.scrollTo({ top: 0, behavior: "smooth" })
                     }
-                    to="/"
-                    className="p-2 text-black rounded transition-all duration-500"
+                    to="https://www.facebook.com/mvsitgiants/"
+                    className="p-2 text-iconcolor rounded transition-all duration-500"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -127,8 +125,8 @@ const Footer = () => {
                     onClick={() =>
                       window.scrollTo({ top: 0, behavior: "smooth" })
                     }
-                    to="/"
-                    className="p-2 text-black group rounded transition-all duration-500"
+                    to="https://www.youtube.com/@mvsitgiants"
+                    className="p-2 text-iconcolor group rounded transition-all duration-500"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -153,7 +151,7 @@ const Footer = () => {
             </div>
             <div className="w-full   flex flex-wrap min-[470px]:flex-row justify-between gap-5 sm:gap-5 md:gap-5 xl:gap-5">
               <div className="flex flex-col max-[470px]:items-left max-[470px]:justify-left gap-3">
-                <h6 className="text-lg font-medium text-gray-900 mb-3 max-[470px]:text-center border-b-4 border-hovnavfontcolor ">
+                <h6 className="text-lg font-medium text-iconcolor mb-3 max-[470px]:text-center border-b-4 border-hovnavfontcolor ">
                Services
                 </h6>
               
@@ -171,7 +169,7 @@ const Footer = () => {
                
               </div>
               <div className="flex flex-col max-[470px]:items-center max-[470px]:justify-center gap-3">
-                <h6 className="text-lg font-medium text-gray-900 mb-3 max-[470px]:text-center border-b-4 border-hovnavfontcolor">
+                <h6 className="text-lg font-medium text-iconcolor mb-3 max-[470px]:text-center border-b-4 border-hovnavfontcolor">
                 Solutions
                 </h6>
                 {solutiondata.map((data,index)=>(<Link
@@ -187,12 +185,13 @@ const Footer = () => {
               
               </div>
               <div className=" flex flex-col sm:justify-left items-start sm:pt-0 pt-10 sm:items-start">
-                <h6 className="text-lg font-medium text-gray-900 mb-5 max-[470px]:text-center border-b-4 border-hovnavfontcolor">
+                <h6 className="text-lg font-medium text-iconcolor mb-5 max-[470px]:text-center border-b-4 border-hovnavfontcolor">
                   Contact Us
                 </h6>
-                <h1 className="font-normal leading-6 mb-3">6294467292</h1>
+                <h1 className="font-normal leading-6 mb-3"><a href="tel:+919792540100">+919792540100</a></h1>
                 <h1 className="font-normal leading-6 mb-3">
-                  info@mvsItGiants.com
+                <a href="mailto:mvsitgiants@gmail.com">mvsitgiants@gmail.com</a>
+                  
                 </h1>
                 <h1 className="font-normal leading-6 mb-7">
                   Bengalore, karnataka
@@ -202,8 +201,8 @@ const Footer = () => {
           </div>
         </div>
       </section>
-      <div className="mt-4 bg-[#232537] flex flex-col sm:flex-row justify-center items-center text-white p-3 font-medium text-xl">
-        <p>&copy; {currentYear} mvsItGiants. All rights reserved.</p>
+      <div className="mt-4 bg-iconcolor flex flex-col sm:flex-row justify-center items-center text-white p-3 font-medium text-xl">
+        <p>&copy; {currentYear} MVS IT Giants. All rights reserved.</p>
       </div>
     </div>
   );

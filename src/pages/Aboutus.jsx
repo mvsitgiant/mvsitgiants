@@ -10,11 +10,11 @@ const Aboutus = () => {
 
   const content = {
     Mission:
-      "In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before the final copy is available.",
+      "We drive business growth by ensuring on-time, high-quality project delivery, supported by top infrastructure and skilled teams.",
     Vision:
-      "In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before the final copy is available.",
+      "Our goal is to be a top provider of Software Development as a Service (SDaaS), offering open-source and tech solutions.",
     OurValue:
-      "In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before the final copy is available.",
+      "Integrity, Transparency and Customer satisfaction",
   };
 
   return (
@@ -44,10 +44,7 @@ const Aboutus = () => {
                 Who we are?
               </h1>
               <p className="font-normal text-navfontcolor pb-5">
-                In publishing and graphic design, Lorem ipsum is a placeholder
-                text commonly used to demonstrate the visual form of a document
-                or a typeface without relying on meaningful content. Lorem ipsum
-                may be used as a placeholder before the final copy is available.
+                We are a dynamic startup driven by a young, creative, and passionate mindset. Committed to social responsibility, we provide top-quality software and marketing services for restaurants, businesses, and budding entrepreneurs. Our goal is to empower our clients with innovative solutions and exceptional support.
               </p>
               <hr />
               <div className="flex justify-between py-5">
@@ -92,9 +89,7 @@ const Aboutus = () => {
               Our Work Style
             </h1>
             <h3 className="max-w-md font-normal py-5 text-navfontcolor text-center">
-              In publishing and graphic design, Lorem ipsum is a placeholder
-              text commonly used to demonstrate the visual form of a document or
-              a typeface without relying on.
+              We prioritize our employees first, believing that a motivated and skilled team drives exceptional results for our customers. Our focus is on nurturing youth talent and fostering skill development while delivering innovative, high-quality solutions with a customer-centric approach.
             </h3>
           </div>
           <div className="flex justify-center items-center mt-10 w-[90%] md:w-[60%]">

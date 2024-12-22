@@ -12,7 +12,7 @@ const CommonServices = () => {
   const navigation = useNavigate();
   const location = useLocation();
   const data = location?.state;
-  const { name, sublink } = data;
+  const { name, descripation,sublink } = data;
   console.log("routes", sublink);
   return (
     <div className="max-w-[1366px] mx-auto">
@@ -33,9 +33,7 @@ const CommonServices = () => {
                 {name}
               </p>
               <p class="mt-6 text-base leading-7 text-gray-600">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                Maiores impedit perferendis suscipit eaque, iste dolor
-                cupiditate blanditiis ratione.
+                {descripation}
               </p>
             </div>
             <dl class="col-span-2 grid grid-cols-1 gap-x-8 gap-y-10 text-base leading-7 text-gray-600 sm:grid-cols-2 lg:gap-y-16">

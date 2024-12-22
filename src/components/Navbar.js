@@ -1,6 +1,16 @@
 import { useState } from "react";
-import { Dialog, DialogPanel } from "@headlessui/react";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import {
+  Dialog,
+  DialogPanel,
+  Disclosure,
+  DisclosureButton,
+  DisclosurePanel,
+} from "@headlessui/react";
+import {
+  Bars3Icon,
+  ChevronDownIcon,
+  XMarkIcon,
+} from "@heroicons/react/24/outline";
 import "./../App.css";
 import { Link, useNavigate } from "react-router-dom";
 import { servicesData } from "../config/config";
@@ -82,9 +92,14 @@ export default function Navbar() {
                           key={index}
                           className="w-1/3 p-4 flex items-center justify-center group"
                           onClick={() => {
-                           
                             setlinkcolor(item.id);
-                            navigation(item.url, { state: { sublink: item.subLink, name: item.name } });
+                            navigation(item.url, {
+                              state: {
+                                descripation: item.description,
+                                sublink: item.subLink,
+                                name: item.name,
+                              },
+                            });
                           }}
                           onMouseEnter={() => setHoveredId(item.id)}
                           onMouseLeave={() => setHoveredId(null)}
@@ -105,7 +120,17 @@ export default function Navbar() {
                               {item.name}
                             </p>
                             <p className=" font-normal text-sm text-pcolor pt-2 ">
-                              {item.description}
+                              {item.description.split(" ").length > 12 ? (
+                                <>
+                                  {item.description
+                                    .split(" ")
+                                    .slice(0, 12)
+                                    .join(" ")}{" "}
+                                  <span style={{ color: "blue" }}>more...</span>
+                                </>
+                              ) : (
+                                item.description
+                              )}
                             </p>
                           </div>
                         </div>
@@ -116,7 +141,6 @@ export default function Navbar() {
               </div>
             </div>
 
-           
             <Link
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
               to="/about"
@@ -139,6 +163,8 @@ export default function Navbar() {
         </nav>
 
         {/* Mobile Menu */}
+        
+
         <Dialog
           className="lg:hidden"
           open={mobileMenuOpen}
@@ -148,12 +174,11 @@ export default function Navbar() {
           <DialogPanel className="fixed inset-y-0 left-0 bg-white z-50 w-full overflow-y-auto px-6 py-6 sm:max-w-sm sm:ring-1">
             <div className="flex items-center justify-between">
               <Link
-                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
                 to="/"
                 className="-m-1.5 p-1.5"
+                onClick={() => setMobileMenuOpen(false)}
               >
-               <img src="/assets/logomvs.png" alt="logo" className="logo" />
-               
+                <img src="/assets/logomvs.png" alt="logo" className="logo" />
               </Link>
               <button
                 type="button"
@@ -166,50 +191,74 @@ export default function Navbar() {
             </div>
             <div className="mt-6 flow-root">
               <div className="-my-6 divide-y divide-gray-500/10">
-                <div className="space-y-2 py-6 flex flex-col gap-5">
+                <div className="space-y-2 py-6">
                   <Link
-                    onClick={() => {
-                      window.scrollTo({ top: 0, behavior: "smooth" });
-                      setMobileMenuOpen(false);
-                    }}
+                    onClick={() => setMobileMenuOpen(false)}
                     to="/"
-                    className="text-lg leading-6 group font-medium text-navfontcolor relative hover:text-hovnavfontcolor"
+                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 hover:bg-blue-700"
                   >
                     Home
-                    <span className="absolute -bottom-1 left-0 w-0 transition-all h-0.5 bg-hovnavfontcolor group-hover:w-full"></span>
                   </Link>
-                  <Link
-                    onClick={() => {
-                      window.scrollTo({ top: 0, behavior: "smooth" });
-                      setMobileMenuOpen(false);
-                    }}
-                    to="/services"
-                    className="text-lg leading-6 group font-medium text-navfontcolor relative hover:text-hovnavfontcolor"
-                  >
-                    Services
-                    <span className="absolute -bottom-1 left-0 w-0 transition-all h-0.5 bg-hovnavfontcolor group-hover:w-full"></span>
-                  </Link>
-                  <Link
-                    onClick={() => {
-                      window.scrollTo({ top: 0, behavior: "smooth" });
-                      setMobileMenuOpen(false);
-                    }}
-                    to="/about"
-                    className="text-lg leading-6 group font-medium text-navfontcolor relative hover:text-hovnavfontcolor"
-                  >
-                    About
-                    <span className="absolute -bottom-1 left-0 w-0 transition-all h-0.5 bg-hovnavfontcolor group-hover:w-full"></span>
-                  </Link>
+                  <Disclosure as="div" className="-mx-3">
+                    {({ open }) => (
+                      <>
+                        <DisclosureButton className="flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base font-semibold leading-7 hover:bg-blue-700 hover:text-white">
+                          Services
+                          <ChevronDownIcon
+                            className={classNames(
+                              open ? "rotate-180" : "",
+                              "h-5 w-5 flex-none"
+                            )}
+                            aria-hidden="true"
+                          />
+                        </DisclosureButton>
+                        <DisclosurePanel className="mt-2 space-y-2">
+                          {servicesData.map((item, index) => (
+                            <Disclosure key={index} as="div" className="-mx-3">
+                              {({ open }) => (
+                                <>
+                                  <DisclosureButton className="flex w-full items-center justify-between rounded-lg py-2 pl-6 pr-3 text-sm font-medium leading-7 hover:bg-blue-700 hover:text-white">
+                                    <h1
+                                      onClick={() => {
+                                        navigation(item.url, {
+                                          state: {
+                                            descripation: item.description,
+                                            sublink: item.subLink,
+                                            name: item.name,
+                                          },
+                                        });
+                                        setMobileMenuOpen(false);
+                                      }}
+                                    >
+                                      {" "}
+                                      {item.name}
+                                    </h1>
+                                   
+                                  </DisclosureButton>
+                                </>
+                              )}
+                            </Disclosure>
+                          ))}
+                        </DisclosurePanel>
+                      </>
+                    )}
+                  </Disclosure>
 
                   <Link
-                    to="/contact"
-                    className="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-lgfirstcolor to-lgsecondcolor group-hover:from-lgfirstcolor group-hover:to-lgsecondcolor hover:text-white  focus:ring-4 focus:outline-none focus:ring-pink-200 "
                     onClick={() => setMobileMenuOpen(false)}
+                    to="/about"
+                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 hover:bg-blue-700"
                   >
-                    <span className="relative px-6 py-1 transition-all ease-in duration-75  text-white font-normal rounded-md group-hover:bg-opacity-0">
-                      contact us
-                    </span>
+                    About Us
                   </Link>
+                  <Link
+                    onClick={() => setMobileMenuOpen(false)}
+                    to="/contact"
+                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 hover:bg-blue-700"
+                  >
+                    Contact Us
+                  </Link>
+                  
                 </div>
               </div>
             </div>

@@ -29,7 +29,8 @@ export const servicesData = [
   {
     id: 1,
     name: "Web App Development",
-    description: "Harness AI and machine learning to optimize operations and deliver actionable insights.",
+    description: "We offer comprehensive web-related services, specializing in custom web app development, responsive web design, e-commerce solutions, UI/UX optimization, CMS integration, SEO services, performance enhancement, security solutions, and ongoing maintenance, ensuring seamless, scalable, and user-friendly digital experiences tailored to your business needs",
+    
     icon: <FaCode size={30} color="#211da6e8"/>,
     url: "/commonservice",
     imageUrl: "/assets/webdevelopment.jpg",
@@ -43,7 +44,7 @@ export const servicesData = [
   {
     id: 2,
     name: "Mobile App Development",
-    description: "Create intuitive, high-performance mobile apps tailored to your business needs.",
+    description: "We provide expert mobile app development services, including custom app design, iOS and Android development, cross-platform solutions, UI/UX optimization, performance enhancement, backend integration, testing, and ongoing support to create intuitive, scalable, and high-performance mobile applications tailored to your business requirements.",
     icon: <FaMobileAlt size={30} color="#211da6e8"/>,
     url: "/commonservice",
     imageUrl: "/assets/mobiledevelopment.jpg",
@@ -56,8 +57,8 @@ export const servicesData = [
   },
   {
     id: 3,
-    name: "Window/macOS/TVOS app",
-    description: "Turn raw data into insights with advanced analytics and visualization services.",
+    name: "Window/macOS/TVOS App",
+    description: "We specialize in developing custom applications for Windows, macOS, and TVOS platforms. Our services include app design, development, UI/UX optimization, cross-platform compatibility, performance enhancement, and ongoing maintenance to create intuitive, responsive, and feature-rich applications tailored to your business needs across desktop and TV devices.",
     icon: <FaTv size={30} color="#211da6e8"/>,
     url: "",
     imageUrl: "/assets/windowdevelopment.jpg",
@@ -70,7 +71,7 @@ export const servicesData = [
   {
     id: 4,
     name: "Product Engineering Services",
-    description: "Turn raw data into insights with advanced analytics and visualization services.",
+    description: "We offer end-to-end product engineering services, including product design, development, testing, and deployment. Our team specializes in building scalable, high-performance products across various platforms, focusing on innovation, quality assurance, and continuous optimization to deliver exceptional user experiences and meet your business goals efficiently.",
     icon: <MdOutlineVideoSettings size={30} color="#211da6e8"/>,
     url: "/commonservice",
      imageUrl: "/assets/productengineering.avif",
@@ -83,7 +84,7 @@ export const servicesData = [
   {
     id: 5,
     name: "Consultancy",
-    description: "Create responsive and user-friendly websites to drive engagement and conversions.",
+    description: "We provide expert consultancy services, offering strategic advice and insights across various industries. Our team helps businesses with technology adoption, process optimization, product development, and digital transformation, ensuring tailored solutions to drive growth, innovation, and long-term success.",
     icon: <FaRegHandshake size={30} color="#211da6e8"/>,
     url: "/commonservice",
      imageUrl: "/assets/consulant.avif",
@@ -98,7 +99,7 @@ export const servicesData = [
   {
     id: 6,
     name: "Advertising and Marketing",
-    description: "Innovative strategies to enhance visibility and customer engagement.",
+    description: "We offer comprehensive advertising and marketing services, including digital marketing, SEO, social media strategy, content creation, brand positioning, and targeted campaigns. Our goal is to enhance your brand visibility, drive engagement, and increase conversions, ensuring measurable results and sustainable growth for your business.",
     icon: <TbSpeakerphone size={30} color="#211da6e8"/>,
     url: "/commonservice",
      imageUrl: "/assets/marketing.avif",

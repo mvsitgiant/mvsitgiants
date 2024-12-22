@@ -1,6 +1,8 @@
 import React from "react";
 import "./../App.css";
+import { useNavigate } from "react-router-dom";
 const Consulation = () => {
+  const navigation=useNavigate()
   return (
     <div className="flex md:mt-10 flex-col lg:flex-row bg-[#C5DCFF] conmlr rounded-md ">
       <div className="relative mt-5 lg:mt-0 flex justify-center lg:justify-start md:justify-center">
@@ -22,7 +24,7 @@ const Consulation = () => {
             Let’s Talk About Business Solutions With Us
           </h1>
           <div className="py-5">
-            <button className="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-lgfirstcolor to-lgsecondcolor group-hover:from-lgfirstcolor group-hover:to-lgsecondcolor hover:text-white  focus:ring-4 focus:outline-none focus:ring-pink-200 ">
+            <button className="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-lgfirstcolor to-lgsecondcolor group-hover:from-lgfirstcolor group-hover:to-lgsecondcolor hover:text-white  focus:ring-4 focus:outline-none focus:ring-pink-200 " onClick={()=>navigation("/contact")}>
               <span className="relative px-10 py-2 transition-all ease-in duration-75 bg-white text-black hover:text-white font-normal rounded-md group-hover:bg-opacity-0">
                 more info
               </span>
