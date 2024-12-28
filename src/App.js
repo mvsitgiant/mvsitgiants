@@ -6,6 +6,7 @@ import Services from "./pages/Services";
 
 import Contactpage from "./pages/Contactpage";
 import CommonServices from "./pages/CommonServices";
+import Navbar from "./components/Navbar";
 
 function App() {
   return (
@@ -15,7 +16,7 @@ function App() {
         background: "linear-gradient(to top, #8BB3F9,#FFE2EA,#8BB3F9,#FFE2EA)",
       }}
     >
-      {/* <Navbar /> */}
+      <Navbar />
       <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path="/about" element={<Aboutus />} />

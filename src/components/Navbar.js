@@ -14,11 +14,11 @@ import {
 import "./../App.css";
 import { Link, useNavigate } from "react-router-dom";
 import { servicesData } from "../config/config";
-import { IoIosArrowDropdownCircle } from "react-icons/io";
+// import { IoIosArrowDropdownCircle } from "react-icons/io";
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [hoveredId, setHoveredId] = useState(false);
-  const [serviceVisiable, setServiceVisiable] = useState("");
+  // const [serviceVisiable, setServiceVisiable] = useState("");
   const [linkcolor, setlinkcolor] = useState();
 
   function classNames(...classes) {
@@ -28,8 +28,66 @@ export default function Navbar() {
   const navigation = useNavigate();
 
   return (
-    <div className=" relative  ">
-      <header className="bg-[#F0F0F0]  z-50 sm:fixed  w-full ">
+ 
+     <>
+      <div class="fixed inset-x-0 top-0 z-50 sm:hidden block">
+        <div class="bg-[#211da6]">
+          <div class="mx-auto max-w-7xl py-2 px-3 ">
+           
+              <div class="flex  items-center justify-between ">
+              <div> <Link
+              to="tel:+919792540100"
+              className="flex flex-row items-center gap-x-1   mb-3"
+            >
+              {/* SVG Icon */}
+              <div className=" ">
+                <svg
+                  width="30"
+                  height="30"
+                  viewBox="0 0 30 30"
+                  fill="none" // Fill the SVG with the current text color
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="text-white"
+                >
+                  <path
+                    d="M22.3092 18.3098C22.0157 18.198 21.8689 18.1421 21.7145 18.1287C21.56 18.1154 21.4058 18.1453 21.0975 18.205L17.8126 18.8416C17.4392 18.9139 17.2525 18.9501 17.0616 18.9206C16.8707 18.891 16.7141 18.8058 16.4008 18.6353C13.8644 17.2551 12.1853 15.6617 11.1192 13.3695C10.9964 13.1055 10.935 12.9735 10.9133 12.8017C10.8917 12.6298 10.9218 12.4684 10.982 12.1456L11.6196 8.72559C11.6759 8.42342 11.7041 8.27233 11.6908 8.12115C11.6775 7.96998 11.6234 7.82612 11.5153 7.5384L10.6314 5.18758C10.37 4.49217 10.2392 4.14447 9.95437 3.94723C9.6695 3.75 9.29804 3.75 8.5551 3.75H5.85778C4.58478 3.75 3.58264 4.8018 3.77336 6.06012C4.24735 9.20085 5.64674 14.8966 9.73544 18.9853C14.0295 23.2794 20.2151 25.1426 23.6187 25.884C24.9335 26.1696 26.0993 25.1448 26.0993 23.7985V21.2824C26.0993 20.5428 26.0993 20.173 25.9034 19.8888C25.7076 19.6046 25.362 19.4729 24.6708 19.2096L22.3092 18.3098Z"
+                    stroke="white"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </div>
+
+              {/* Text Content */}
+              <div className="flex flex-col items-center">
+                <h5 className="text-xs font-normal leading-4  text-gray-400 ">
+                  Have any question?
+                </h5>
+                <h5 className="text-xs font-medium leading-4   text-white">
+                  +919792540100
+                </h5>
+              </div>
+            </Link></div>
+              <div>  <Link
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              to="/contact"
+              className="bg-white rounded-lg py-1"
+            >
+              <span className="relative px-1  transition-all ease-in duration-75  text-iconcolor font-normal  ">
+                contact us
+              </span>
+            </Link></div>
+                
+
+          
+              </div>
+            
+          </div>
+        </div>
+      </div>
+      <header className="bg-[#F0F0F0]  z-40 fixed  mt-12 sm:mt-0 w-full ">
+      
         <nav
           aria-label="Global"
           className="conplr flex items-center justify-between  h-20"
@@ -60,7 +118,7 @@ export default function Navbar() {
             <Link
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
               to="/"
-              className="text-sm leading-6 group font-semibold text-navfontcolor relative hover:text-hovnavfontcolor focus:text-hovnavfontcolor "
+              className="text-sm leading-6 group font-semibold text-iconcolor relative hover:text-hovnavfontcolor focus:text-hovnavfontcolor "
             >
               Home
               <span className="absolute -bottom-1 left-0 w-0 transition-all h-0.5 bg-hovnavfontcolor group-hover:w-full "></span>
@@ -68,7 +126,7 @@ export default function Navbar() {
             <div className="relative group">
               <Link
                 to="/services"
-                className="text-sm leading-6 font-semibold text-navfontcolor relative hover:text-hovnavfontcolor focus:text-hovnavfontcolor p-2"
+                className="text-sm leading-6 font-semibold text-iconcolor relative hover:text-hovnavfontcolor focus:text-hovnavfontcolor p-2"
               >
                 Services
                 <span className="absolute -bottom-1 left-0 w-0 transition-all duration-300 ease-in-out h-0.5 bg-hovnavfontcolor group-hover:w-full"></span>
@@ -81,7 +139,7 @@ export default function Navbar() {
                   backgroundSize: "cover",
                   backgroundPosition: "center",
                   width: "1300px",
-                  left: "-840px",
+                  left: "-620px",
                 }}
               >
                 <div className="h-auto w-full conplr">
@@ -144,10 +202,44 @@ export default function Navbar() {
             <Link
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
               to="/about"
-              className="text-sm leading-6 group font-semibold text-navfontcolor relative hover:text-hovnavfontcolor focus:text-hovnavfontcolor"
+              className="text-sm leading-6 group font-semibold text-iconcolor relative hover:text-hovnavfontcolor focus:text-hovnavfontcolor"
             >
               About Us
               <span className="absolute -bottom-1 left-0 w-0 transition-all h-0.5 bg-hovnavfontcolor group-hover:w-full"></span>
+            </Link>
+            <Link
+              to="tel:+919792540100"
+              className="flex flex-col sm:flex-row items-center gap-x-2 border-l-2 border-iconcolor mb-3"
+            >
+              {/* SVG Icon */}
+              <div className="sm:block hidden ml-4">
+                <svg
+                  width="40"
+                  height="40"
+                  viewBox="0 0 30 30"
+                  fill="currentColor" // Fill the SVG with the current text color
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="text-iconcolor"
+                >
+                  <path
+                    d="M22.3092 18.3098C22.0157 18.198 21.8689 18.1421 21.7145 18.1287C21.56 18.1154 21.4058 18.1453 21.0975 18.205L17.8126 18.8416C17.4392 18.9139 17.2525 18.9501 17.0616 18.9206C16.8707 18.891 16.7141 18.8058 16.4008 18.6353C13.8644 17.2551 12.1853 15.6617 11.1192 13.3695C10.9964 13.1055 10.935 12.9735 10.9133 12.8017C10.8917 12.6298 10.9218 12.4684 10.982 12.1456L11.6196 8.72559C11.6759 8.42342 11.7041 8.27233 11.6908 8.12115C11.6775 7.96998 11.6234 7.82612 11.5153 7.5384L10.6314 5.18758C10.37 4.49217 10.2392 4.14447 9.95437 3.94723C9.6695 3.75 9.29804 3.75 8.5551 3.75H5.85778C4.58478 3.75 3.58264 4.8018 3.77336 6.06012C4.24735 9.20085 5.64674 14.8966 9.73544 18.9853C14.0295 23.2794 20.2151 25.1426 23.6187 25.884C24.9335 26.1696 26.0993 25.1448 26.0993 23.7985V21.2824C26.0993 20.5428 26.0993 20.173 25.9034 19.8888C25.7076 19.6046 25.362 19.4729 24.6708 19.2096L22.3092 18.3098Z"
+                    stroke="#211da6e8"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </div>
+
+              {/* Text Content */}
+              <div className="flex flex-col items-center">
+                <h5 className="text-sm font-medium leading-6  text-h1color ">
+                  Have any question?
+                </h5>
+                <h5 className="text-base font-semibold leading-6   text-iconcolor">
+                  +919792540100
+                </h5>
+              </div>
             </Link>
 
             <Link
@@ -163,7 +255,6 @@ export default function Navbar() {
         </nav>
 
         {/* Mobile Menu */}
-        
 
         <Dialog
           className="lg:hidden"
@@ -233,7 +324,6 @@ export default function Navbar() {
                                       {" "}
                                       {item.name}
                                     </h1>
-                                   
                                   </DisclosureButton>
                                 </>
                               )}
@@ -258,13 +348,12 @@ export default function Navbar() {
                   >
                     Contact Us
                   </Link>
-                  
                 </div>
               </div>
             </div>
           </DialogPanel>
         </Dialog>
       </header>
-    </div>
+ </>
   );
 }

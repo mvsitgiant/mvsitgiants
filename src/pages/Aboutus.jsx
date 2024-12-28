@@ -19,10 +19,7 @@ const Aboutus = () => {
 
   return (
     <div className="max-w-[1366px] mx-auto ">
-      <div>
-        {" "}
-        <Navbar />
-      </div>
+      
       <div>
         {" "}
         <Commonheader namepage={"About Us"} />
@@ -31,7 +28,7 @@ const Aboutus = () => {
       <div
         className="flex flex-col rounded-md"
         style={{
-          backgroundImage: 'url("/assets/aboutcompanybackground.jpeg")',
+          backgroundImage: 'url("/assets/aboutcompanybackground.png")',
           backgroundSize: "cover",
           backgroundPosition: "center",
           width: "100%",
@@ -71,7 +68,7 @@ const Aboutus = () => {
                 <img
                   src="/assets/aboutpage.png"
                   alt=""
-                  className=" md:max-w-sm "
+                  className=" md:max-w-sm rounded-lg"
                 />
                 <img
                   src="/assets/homepageleftheader4.png"

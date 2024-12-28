@@ -1,16 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link} from "react-router-dom";
 import "./../App.css";
 import { Dialog, DialogPanel } from "@headlessui/react";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
-import { servicesData } from "./../config/config";
-import { IoIosArrowDropdownCircle } from "react-icons/io";
-import Navbar from "./Navbar";
-
+import {  XMarkIcon } from "@heroicons/react/24/outline";
+// import { servicesData } from "./../config/config";
+// import { IoIosArrowDropdownCircle } from "react-icons/io";
+// import Navbar from "./Navbar";
 
 const Header = () => {
   const [width, setWidth] = useState(window.innerWidth);
-  const navigation = useNavigate();
+
   useEffect(() => {
     const handleResize = () => setWidth(window.innerWidth);
 
@@ -21,41 +20,10 @@ const Header = () => {
 
   const [linkcolor, setlinkcolor] = useState(1);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [Sublink, setSubLink] = useState([
-    {
-      id: 1,
-      url: "#",
-      text: "Data Science",
-      data: "Our Data Science experts will turn raw data into actionable insights that drive growth and innovation.",
-    },
-    {
-      id: 2,
-      url: "#",
-      text: "Generative AI",
-      data: "Our GenAI experts will help you use GenAI to address diverse business challenges with deep expertise.",
-    },
-    {
-      id: 3,
-      url: "#",
-      text: "Conversational AI",
-      data: "Our experts develop Conversational AI solutions to boost efficiency and deliver exceptional customer experiences.",
-    },
-    {
-      id: 4,
-      url: "#",
-      text: "ML and MLOps",
-      data: "We unlock ML's potential through MLOps by streamlining workflows, optimizing resources, and mitigating risks.",
-    },
-    {
-      id: 5,
-      url: "#",
-      text: "AI Software Development",
-      data: "Our AI/ML engineers turn your vision into reality with cloud-native development and advanced expertise.",
-    },
-  ]);
+ 
   return (
     <div
-      className="flex flex-col lg:flex-row  justify-between"
+      className="flex flex-col lg:flex-row  justify-between "
       style={{
         backgroundImage: 'url("/assets/herobghome.png")',
         backgroundSize: "cover",
@@ -64,134 +32,22 @@ const Header = () => {
         width: "100%",
       }}
     >
-    <Navbar/>
-      <div className="flex flex-col pt-5 ">
-        {/* <div className="flex justify-between  items-center pb-10">
-          <div className="conpl">
-            <Link to="/" className="m-1.5 p-1.5 ">
-              <span className="sr-only">Your Company</span>
-              <img
-                src="/assets/logomvs.png"
-                alt="logo"
-                class="logo"
-              />
-            </Link>
-          </div>
-          <div className="lg:hidden">
-            <button
-              type="button"
-              onClick={() => setMobileMenuOpen(true)}
-              className="m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
-            >
-              <span className="sr-only">Open main menu</span>
-              <Bars3Icon aria-hidden="true" className="h-6 w-6" />
-            </button>
-          </div>
-
-          <div className="lg:flex gap-x-3 justify-end md:gap-x-5  hidden">
-            <div className="">
-              <Link
-                to="/"
-                className="text-sm leading-6 group font-medium text-navfontcolor relative hover:text-hovnavfontcolor focus:text-hovnavfontcolor"
-              >
-                Home
-                <span className="absolute -bottom-1 left-0 w-0 transition-all h-0.5 bg-hovnavfontcolor group-hover:w-full"></span>
-              </Link>
-            </div>
-            <div className="relative group">
-              <Link
-                to="/services"
-                className="text-sm leading-6 group font-medium text-navfontcolor relative hover:text-hovnavfontcolor focus:text-hovnavfontcolor p-2"
-              >
-                Services
-                <span className="absolute -bottom-1 left-0 w-0 transition-all h-0.5 bg-hovnavfontcolor group-hover:w-full"></span>
-              </Link>
-
-              <div
-                className="absolute top-8 bg-gray-900 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out pointer-events-none group-hover:pointer-events-auto z-40  p-10"
-                style={{
-                  backgroundImage: `linear-gradient(to right, #FFFFFF, #DEDFF6EC,#EDF4FF), url("/assets/hoverimagebg.png")`,
-                  backgroundSize: "cover",
-                  backgroundPosition: "center",
-             width:"1300px",
-                  height: "auto",
-                  left: "-560px",
-                }}
-              >
-                <div className="h-auto w-full conplr">
-                  <div className="flex">
-                    <div className="flex flex-col border-r-2 border-black w-[25%]">
-                      {servicesData.map((item, index) => (
-                        <div
-                          key={index}
-                          className="font-normal pb-3 cursor-pointer focus:text-hovnavfontcolor flex gap-5 justify-between pr-2 hover:text-hovnavfontcolor"
-                          onClick={() => {
-                            setSubLink(item.subLink);
-                            setlinkcolor(item.id);
-                          }}
-                          style={{
-                            color: linkcolor === item.id ? "#F1245B" : "black",
-                          }}
-                        >
-                          <p className="font-normal hover:text-hovnavfontcolor  text-sm pb-[27px] pt-0.5  p-2">
-                            {item.name}
-                          </p>
-                        </div>
-                      ))}
-                    </div>
-                    <div className="grid grid-cols-1 md:grid-cols-3  gap-4 pl-10 w-[75%] text-left justify-center">
-                      {Sublink.map((link) => (
-                        <div
-                          key={link.id}
-                          className="rounded-lg text-left  cursor-pointer"
-                          onClick={() => {
-                            navigation("/commonservice", {
-                              state: { link, Sublink },
-                            });
-                          }}
-                        >
-                          <a className="text-black hover:underline font-medium text-sm hover:text-hovnavfontcolor">
-                            {link.text}
-                          </a>
-                          <p className="text-[12px] font-normal py-5">
-                            {link.data}
-                          </p>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="">
-              <Link
-                to="/about"
-                className="text-sm leading-6 group font-medium text-navfontcolor relative hover:text-hovnavfontcolor focus:text-hovnavfontcolor"
-              >
-                About
-                <span className="absolute -bottom-1 left-0 w-0 transition-all h-0.5 bg-hovnavfontcolor group-hover:w-full"></span>
-              </Link>
-            </div>
-          </div>
-        </div> */}
-
+      {/* <Navbar /> */}
+      <div className="flex flex-col pt-14 ">
         <div className="flex flex-col lg:flex-row mt-20">
-          {/* <div className="relative md:hidden flex justify-center flex-1  lg:mt-0 overflow-hidden w-auto lg:w-screen">
-            <div className="relative flex justify-center lg:block">
-              <img src="/assets/mvsithomemobile.png" alt="" className="" />
-            </div>
-          </div> */}
           <div className="flex flex-1 flex-col ">
             <div className="flex flex-col   px-2 lg:pr-12 lg:px-0 conpl">
-              <h1 className="font-poppinsh font-bold text-2xl md:text-4xl mb-3 md:mb-5 text-center lg:text-left leading-tight myheading">
-               Turn your business ideas into real solutions!
+              <h1 className="font-poppinsh font-bold text-2xl md:text-4xl mb-3 md:mb-5  text-left leading-tight myheading">
+                Turn your business ideas into real solutions!
               </h1>
 
-              <p className="mb-3 text-navfontcolor font-poppinsh font-normal md:mb-5 text-sm md:text-base text-center lg:text-left py-4">
-                We offer Software Development as a Service (SDaaS) for building web apps, mobile apps,marketing and innovative products for your business. Get custom solutions tailored to your business needs to help you grow and succeed.
+              <p className="mb-3 text-navfontcolor font-poppinsh font-normal md:mb-5 text-sm md:text-base text-left lg:text-left py-4">
+                We offer Software Development as a Service (SDaaS) for building
+                web apps, mobile apps,marketing and innovative products for your
+                business. Get custom solutions tailored to your business needs
+                to help you grow and succeed.
               </p>
-             
+
               <div className="flex justify-center lg:justify-start pb-5">
                 <Link
                   to="/contact"

@@ -33,7 +33,7 @@ export const servicesData = [
     
     icon: <FaCode size={30} color="#211da6e8"/>,
     url: "/commonservice",
-    imageUrl: "/assets/webdevelopment.jpg",
+    imageUrl: "/assets/webdevelopment.png",
     subLink: [
       { id: 1, url: "/commonservice", text: "UI/UX Design", data: "Crafting seamless and engaging user experiences." },
       { id: 2, url: "/commonservice", text: "Website Maintenance", data: "Ensuring your site remains updated and secure." },
@@ -47,7 +47,7 @@ export const servicesData = [
     description: "We provide expert mobile app development services, including custom app design, iOS and Android development, cross-platform solutions, UI/UX optimization, performance enhancement, backend integration, testing, and ongoing support to create intuitive, scalable, and high-performance mobile applications tailored to your business requirements.",
     icon: <FaMobileAlt size={30} color="#211da6e8"/>,
     url: "/commonservice",
-    imageUrl: "/assets/mobiledevelopment.jpg",
+    imageUrl: "/assets/mobiledevelopment.png",
     subLink: [
       { id: 1, url: "/commonservice", text: "Android Development", data: "Building robust apps for Android platforms." },
       { id: 2, url: "/commonservice", text: "iOS Development", data: "Delivering sleek and efficient iOS applications." },
@@ -61,7 +61,7 @@ export const servicesData = [
     description: "We specialize in developing custom applications for Windows, macOS, and TVOS platforms. Our services include app design, development, UI/UX optimization, cross-platform compatibility, performance enhancement, and ongoing maintenance to create intuitive, responsive, and feature-rich applications tailored to your business needs across desktop and TV devices.",
     icon: <FaTv size={30} color="#211da6e8"/>,
     url: "",
-    imageUrl: "/assets/windowdevelopment.jpg",
+    imageUrl: "/assets/windowdevelopment.png",
     subLink: [
       { id: 1, url: "/commonservice", text: "Problem Solving", data: "Strategic solutions to anticipate potential issues." },
       { id: 2, url: "/commonservice", text: "Innovative Solutions", data: "Creative approaches for long-term scalability." },

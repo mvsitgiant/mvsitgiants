@@ -1,41 +1,33 @@
-// import AOS from "aos";
-// import "aos/dist/aos.css";
-import React, { useEffect } from "react";
+
+import React from "react";
 import "./../App.css";
 import { useNavigate } from "react-router-dom";
 const Aboutcompany = () => {
   const navigation=useNavigate()
-  // useEffect(() => {
-  //   AOS.init();
-  // });
+  
   return (
     <div
       className=" conplr  max-w-full  "
       style={{
-        backgroundImage: 'url("/assets/aboutcompanybackground.jpeg")',
+        backgroundImage: 'url("/assets/aboutcompanybackground.png")',
         backgroundSize: "cover",
         backgroundPosition: "center",
         height: "auto",
         width: "100%",
       }}
     >
-      <div className="pl-[300px] mt-10 -mb-3">
-        <img src="/assets/aboutcomdot.png" alt=" w-[150px] h-[100px]" />
-      </div>
+     
       <div className="flex flex-col sm:gap-16 lg:flex-row">
         <div className="relative    ">
           <div
             className="relative "
-            // data-aos="fade-right"
-            // data-aos-offset="200"
-            // data-aos-easing="ease-out"
-            // data-aos-duration="600"
+            
           >
             <div className="flex flex-col mt-10 ">
               <img
-                src="/assets/Aboutushome.jpg"
+                src="/assets/Aboutushome.png"
                 alt=""
-                className="w-[100%] h-auto"
+                className="w-[100%] h-auto rounded-lg"
               />
             </div>
           </div>
@@ -43,10 +35,7 @@ const Aboutcompany = () => {
         <div className="   ">
           <div
             className="flex flex-col  "
-            // data-aos="fade-left"
-            // data-aos-offset="200"
-            // data-aos-easing="ease-in-sine"
-            // data-aos-duration="600"
+            
           >
             <h2 className="uppercase font-medium text-iconcolor">About Our Company</h2>
             <h1 className=" font-poppinsh font-semibold text-3xl  my-3 md:my-5">

@@ -1,5 +1,5 @@
 import React from "react";
-import Navbar from "../components/Navbar";
+// import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Commonheader from "../components/Commonheader";
 import { servicesData } from "../config/config";
@@ -7,9 +7,7 @@ import { servicesData } from "../config/config";
 const Services = () => {
   return (
     <div className="max-w-[1366px] mx-auto">
-      <div>
-        <Navbar />
-      </div>
+      
       <div>
         <Commonheader namepage={"Services"} />
       </div>
@@ -26,7 +24,7 @@ const Services = () => {
       <img
         src={data.imageUrl || "/assets/ourkeyfeatureleftside.png"}
         alt={data.imageAlt || ""}
-        className="w-full max-w-sm lg:max-w-md"
+        className="w-full max-w-sm lg:max-w-md rounded-lg"
       />
     </div>
 

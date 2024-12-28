@@ -3,13 +3,11 @@ import { Link } from "react-router-dom";
 import Navbar from "./../components/Navbar";
 import Footer from "../components/Footer";
 import Commonheader from "../components/Commonheader";
-
+import { FaLinkedin } from "react-icons/fa";
 const Contactpage = () => {
   return (
     <div className="max-w-[1366px] mx-auto ">
-      <div>
-        <Navbar />
-      </div>
+      
       <div>
         <Commonheader namepage={"Contact Us"} />
       </div>
@@ -185,27 +183,10 @@ const Contactpage = () => {
               </Link>
               <Link
                 onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-                to="https://www.youtube.com/@mvsitgiants"
+                to="https://www.linkedin.com/company/100539584/admin/analytics/visitors/"
                 className="p-2  group rounded transition-all duration-500"
               >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  className="text-iconcolor"
-                >
-                  <path
-                    d="M20.3677 7.90615C20.1684 7.15701 19.5789 6.56602 18.8289 6.36347C17.4728 6 12.0319 6 12.0319 6C12.0319 6 6.59366 6 5.23479 6.36347C4.48756 6.56324 3.89807 7.15423 3.69604 7.90615C3.3335 9.2657 3.3335 12.1041 3.3335 12.1041C3.3335 12.1041 3.3335 14.9425 3.69604 16.3021C3.89531 17.0512 4.48479 17.6422 5.23479 17.8448C6.59366 18.2082 12.0319 18.2082 12.0319 18.2082C12.0319 18.2082 17.4728 18.2082 18.8289 17.8448C19.5762 17.645 20.1657 17.054 20.3677 16.3021C20.7302 14.9425 20.7302 12.1041 20.7302 12.1041C20.7302 12.1041 20.7302 9.2657 20.3677 7.90615Z"
-                    fill="currentColor"
-                  />
-                  <path
-                    className="fill-white transition-all divide-gray-500 group-hover:fill-yellow-800 group-focus-within:fill-yellow-800"
-                    d="M10.2939 14.7206L14.8132 12.1041L10.2939 9.48767V14.7206Z"
-                    fill=""
-                  />
-                </svg>
+               < FaLinkedin className="text-iconcolor" />
               </Link>
             </div>
           </div>

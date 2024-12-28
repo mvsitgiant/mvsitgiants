@@ -1,18 +1,20 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./../App.css";
 import { servicesData, solutiondata } from "../config/config";
+import { FaLinkedin } from "react-icons/fa";
 const Footer = () => {
+  const navigation=useNavigate()
   const currentYear = new Date().getFullYear();
   return (
     <div
       style={{
-        backgroundImage: 'url("/assets/footerbg.jpeg")',
+        backgroundImage: 'url("/assets/footerbg.png")',
         backgroundSize: "cover",
         backgroundPosition: "center",
         height: "auto",
         width: "100%",
-        marginTop:20
+        marginTop: 20,
       }}
     >
       <section className="pt-16 pb-7 conplr ">
@@ -20,13 +22,14 @@ const Footer = () => {
           <div className="flex flex-col lg:flex-row gap-12 pb-14 border-b-2 border-gray-200 justify-between">
             <div className="flex flex-col gap-8 xl:gap-14 w-full lg:max-w-sm mx-auto ">
               <div className="flex flex-col gap-8">
-               <Link to="/" className="-m-1.5 p-1.5 ">
-              <span className="sr-only">Your Company</span>
-              <img src="/assets/logomvs.png" alt="logo" className="logo"/>
-             
-            </Link>
+                <Link to="/" className="-m-1.5 p-1.5 ">
+                  <span className="sr-only">Your Company</span>
+                  <img src="/assets/logomvs.png" alt="logo" className="logo" />
+                </Link>
                 <p className="text-base font-normal pt-3 text-gray-500 max-[470px]:text-center">
-                  We are a leading IT software development company specializing in custom software solutions, web applications, and mobile development.
+                  We are a leading IT software development company specializing
+                  in custom software solutions, web applications, and mobile
+                  development.
                 </p>
                 <div className="flex items-center max-[470px]:justify-center gap-5">
                   <Link
@@ -125,26 +128,11 @@ const Footer = () => {
                     onClick={() =>
                       window.scrollTo({ top: 0, behavior: "smooth" })
                     }
-                    to="https://www.youtube.com/@mvsitgiants"
+                    to="https://www.linkedin.com/company/100539584/admin/analytics/visitors/"
                     className="p-2 text-iconcolor group rounded transition-all duration-500"
                   >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                    >
-                      <path
-                        d="M20.3677 7.90615C20.1684 7.15701 19.5789 6.56602 18.8289 6.36347C17.4728 6 12.0319 6 12.0319 6C12.0319 6 6.59366 6 5.23479 6.36347C4.48756 6.56324 3.89807 7.15423 3.69604 7.90615C3.3335 9.2657 3.3335 12.1041 3.3335 12.1041C3.3335 12.1041 3.3335 14.9425 3.69604 16.3021C3.89531 17.0512 4.48479 17.6422 5.23479 17.8448C6.59366 18.2082 12.0319 18.2082 12.0319 18.2082C12.0319 18.2082 17.4728 18.2082 18.8289 17.8448C19.5762 17.645 20.1657 17.054 20.3677 16.3021C20.7302 14.9425 20.7302 12.1041 20.7302 12.1041C20.7302 12.1041 20.7302 9.2657 20.3677 7.90615Z"
-                        fill="currentColor"
-                      />
-                      <path
-                        className="fill-white transition-all divide-gray-500 group-hover:fill-yellow-800 group-focus-within:fill-yellow-800"
-                        d="M10.2939 14.7206L14.8132 12.1041L10.2939 9.48767V14.7206Z"
-                        fill=""
-                      />
-                    </svg>
+                   
+<FaLinkedin />
                   </Link>
                 </div>
               </div>
@@ -152,46 +140,57 @@ const Footer = () => {
             <div className="w-full   flex flex-wrap min-[470px]:flex-row justify-between gap-5 sm:gap-5 md:gap-5 xl:gap-5">
               <div className="flex flex-col max-[470px]:items-left max-[470px]:justify-left gap-3">
                 <h6 className="text-lg font-medium text-iconcolor mb-3 max-[470px]:text-center border-b-4 border-hovnavfontcolor ">
-               Services
+                  Services
                 </h6>
-              
 
-                {servicesData.map((data,index)=>(<Link
-                  onClick={() =>
-                    window.scrollTo({ top: 0, behavior: "smooth" })
-                  }
-                  to="/"
-                  className="font-normal  leading-6 group   relative hover:text-hovnavfontcolor"
-                >
-                 {data?.name}
-                  <span className="absolute -bottom-1 left-0 w-0 transition-all h-0.5 bg-hovnavfontcolor group-hover:w-full"></span>
-                </Link>))}
-               
+                {servicesData.map((data, index) => (
+                  <h1
+                    onClick={() => {
+                      navigation(data.url, {
+                        state: {
+                          descripation: data.description,
+                          sublink: data.subLink,
+                          name: data.name,
+                        },
+                      });
+                      window.scrollTo({ top: 0, behavior: "smooth" });
+                    }}
+                    
+                    className="font-normal  leading-6 group   relative hover:text-hovnavfontcolor cursor-pointer"
+                  >
+                    {data?.name}
+                    <span className="absolute -bottom-1 left-0 w-0 transition-all h-0.5 bg-hovnavfontcolor group-hover:w-full"></span>
+                  </h1>
+                ))}
               </div>
               <div className="flex flex-col max-[470px]:items-center max-[470px]:justify-center gap-3">
                 <h6 className="text-lg font-medium text-iconcolor mb-3 max-[470px]:text-center border-b-4 border-hovnavfontcolor">
-                Solutions
+                  Solutions
                 </h6>
-                {solutiondata.map((data,index)=>(<Link
-                  onClick={() =>
-                    window.scrollTo({ top: 0, behavior: "smooth" })
-                  }
-                  to="/"
-                  className="font-normal  leading-6 group   relative hover:text-hovnavfontcolor"
-                >
-                  {data.name}
-                  <span className="absolute -bottom-1 left-0 w-0 transition-all h-0.5 bg-hovnavfontcolor group-hover:w-full"></span>
-                </Link>))}
-              
+                {solutiondata.map((data, index) => (
+                  <Link
+                    onClick={() =>
+                      window.scrollTo({ top: 0, behavior: "smooth" })
+                    }
+                    to="/"
+                    className="font-normal  leading-6 group   relative hover:text-hovnavfontcolor"
+                  >
+                    {data.name}
+                    <span className="absolute -bottom-1 left-0 w-0 transition-all h-0.5 bg-hovnavfontcolor group-hover:w-full"></span>
+                  </Link>
+                ))}
               </div>
               <div className=" flex flex-col sm:justify-left items-start sm:pt-0 pt-10 sm:items-start">
                 <h6 className="text-lg font-medium text-iconcolor mb-5 max-[470px]:text-center border-b-4 border-hovnavfontcolor">
                   Contact Us
                 </h6>
-                <h1 className="font-normal leading-6 mb-3"><a href="tel:+919792540100">+919792540100</a></h1>
                 <h1 className="font-normal leading-6 mb-3">
-                <a href="mailto:mvsitgiants@gmail.com">mvsitgiants@gmail.com</a>
-                  
+                  <a href="tel:+919792540100">+919792540100</a>
+                </h1>
+                <h1 className="font-normal leading-6 mb-3">
+                  <a href="mailto:mvsitgiants@gmail.com">
+                    mvsitgiants@gmail.com
+                  </a>
                 </h1>
                 <h1 className="font-normal leading-6 mb-7">
                   Bengalore, karnataka
@@ -201,7 +200,7 @@ const Footer = () => {
           </div>
         </div>
       </section>
-      <div className="mt-4 bg-iconcolor flex flex-col sm:flex-row justify-center items-center text-white p-3 font-medium text-xl">
+      <div className="mt-4 bg-iconcolor flex flex-col sm:flex-row justify-center items-center text-white p-3 font-medium text-lg">
         <p>&copy; {currentYear} MVS IT Giants. All rights reserved.</p>
       </div>
     </div>

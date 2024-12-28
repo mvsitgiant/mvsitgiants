@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "./../App.css";
 // import AOS from "aos";
 // import "aos/dist/aos.css";
@@ -20,9 +20,9 @@ const Keyfuture = () => {
           // data-aos-duration="600"
         >
           <img
-            src="/assets/techsolution.jpg"
+            src="/assets/techsolution.png"
             alt=""
-            className="w-full max-w-sm lg:max-w-md border-r-2"
+            className="w-full max-w-sm lg:max-w-md border-r-2 rounded-lg"
           />
         </div>
         <div
@@ -57,15 +57,12 @@ const Keyfuture = () => {
         </div>
         <div
           className="flex justify-center lg:justify-end mt-5 lg:mt-0 lg:w-1/2"
-          // data-aos="fade-left"
-          // data-aos-offset="200"
-          // data-aos-easing="ease-out"
-          // data-aos-duration="600"
+          
         >
           <img
-            src="/assets/Healthcare.jpg"
+            src="/assets/Healthcare.png"
             alt=""
-            className="w-full max-w-sm lg:max-w-md"
+            className="w-full max-w-sm lg:max-w-md rounded-lg"
           />
         </div>
       </div>
@@ -75,9 +72,9 @@ const Keyfuture = () => {
           
         >
           <img
-            src="/assets/possystem.jpg"
+            src="/assets/possystem.png"
             alt=""
-            className="w-full max-w-sm lg:max-w-md"
+            className="w-full max-w-sm lg:max-w-md rounded-lg"
           />
         </div>
         <div

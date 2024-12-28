@@ -16,9 +16,9 @@ const CommonServices = () => {
   console.log("routes", sublink);
   return (
     <div className="max-w-[1366px] mx-auto">
-      <div>
+      {/* <div>
         <Navbar />
-      </div>
+      </div> */}
       <div>
         <Commonheader namepage={name} />
       </div>
