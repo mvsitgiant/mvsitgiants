@@ -41,7 +41,7 @@ const Aboutcompany = () => {
             <h1 className=" font-poppinsh font-semibold text-3xl  my-3 md:my-5">
               Your Passionate Tech Partner Fueling Business Growth
             </h1>
-            <p className="mb-3 text-black font-poppinsh font-normal md:mb-5 text-sm md:text-base">
+            <p className="mb-3 text-navfontcolor font-poppinsh font-normal md:mb-5 text-sm md:text-base">
               We are a dynamic startup driven by a young, creative, and passionate mindset. Committed to social responsibility, we provide top-quality software and marketing services for restaurants, businesses, and budding entrepreneurs. Our goal is to empower our clients with innovative solutions and exceptional support.
             </p>
             <div className="my-5">

@@ -20,7 +20,7 @@ const Keyfuture = () => {
           // data-aos-duration="600"
         >
           <img
-            src="/assets/techsolution.png"
+            src="/assets/Techsolution.png"
             alt=""
             className="w-full max-w-sm lg:max-w-md border-r-2 rounded-lg"
           />
@@ -60,7 +60,7 @@ const Keyfuture = () => {
           
         >
           <img
-            src="/assets/Healthcare.png"
+            src="/assets/healthcare.png"
             alt=""
             className="w-full max-w-sm lg:max-w-md rounded-lg"
           />

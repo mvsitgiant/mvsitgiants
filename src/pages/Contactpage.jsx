@@ -183,7 +183,7 @@ const Contactpage = () => {
               </Link>
               <Link
                 onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-                to="https://www.linkedin.com/company/100539584/admin/analytics/visitors/"
+                to="https://www.linkedin.com/company/mvsitgiants/"
                 className="p-2  group rounded transition-all duration-500"
               >
                < FaLinkedin className="text-iconcolor" />

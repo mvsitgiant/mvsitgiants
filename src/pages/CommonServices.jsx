@@ -1,11 +1,10 @@
 import React from "react";
 
-import Navbar from "./../components/Navbar";
+
 import Commonheader from "../components/Commonheader";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Footer from "../components/Footer";
-import { servicesData } from "../config/config";
-import { HiOutlineArrowNarrowRight } from "react-icons/hi";
+
 import Consulation from './../components/Consulation';
 
 const CommonServices = () => {
@@ -16,9 +15,7 @@ const CommonServices = () => {
   console.log("routes", sublink);
   return (
     <div className="max-w-[1366px] mx-auto">
-      {/* <div>
-        <Navbar />
-      </div> */}
+     
       <div>
         <Commonheader namepage={name} />
       </div>

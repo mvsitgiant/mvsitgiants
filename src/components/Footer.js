@@ -4,7 +4,7 @@ import "./../App.css";
 import { servicesData, solutiondata } from "../config/config";
 import { FaLinkedin } from "react-icons/fa";
 const Footer = () => {
-  const navigation=useNavigate()
+  const navigation = useNavigate();
   const currentYear = new Date().getFullYear();
   return (
     <div
@@ -128,11 +128,10 @@ const Footer = () => {
                     onClick={() =>
                       window.scrollTo({ top: 0, behavior: "smooth" })
                     }
-                    to="https://www.linkedin.com/company/100539584/admin/analytics/visitors/"
+                    to="https://www.linkedin.com/company/mvsitgiants/"
                     className="p-2 text-iconcolor group rounded transition-all duration-500"
                   >
-                   
-<FaLinkedin />
+                    <FaLinkedin />
                   </Link>
                 </div>
               </div>
@@ -155,7 +154,6 @@ const Footer = () => {
                       });
                       window.scrollTo({ top: 0, behavior: "smooth" });
                     }}
-                    
                     className="font-normal  leading-6 group   relative hover:text-hovnavfontcolor cursor-pointer"
                   >
                     {data?.name}

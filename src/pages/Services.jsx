@@ -3,6 +3,7 @@ import React from "react";
 import Footer from "../components/Footer";
 import Commonheader from "../components/Commonheader";
 import { servicesData } from "../config/config";
+import Consulation from "../components/Consulation";
 
 const Services = () => {
   return (
@@ -48,6 +49,7 @@ const Services = () => {
   </div>
 ))}
       </div>
+      <Consulation/>
       <Footer />
     </div>
   );
