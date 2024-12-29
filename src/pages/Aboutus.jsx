@@ -5,6 +5,10 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Commonheader from "../components/Commonheader.js";
 
+import { features } from "../config/config.js";
+import Consulation from "../components/Consulation.js";
+
+
 const Aboutus = () => {
   const [activeSection, setActiveSection] = useState("Mission");
 
@@ -13,13 +17,11 @@ const Aboutus = () => {
       "We drive business growth by ensuring on-time, high-quality project delivery, supported by top infrastructure and skilled teams.",
     Vision:
       "Our goal is to be a top provider of Software Development as a Service (SDaaS), offering open-source and tech solutions.",
-    OurValue:
-      "Integrity, Transparency and Customer satisfaction",
+    OurValue: "Integrity, Transparency and Customer satisfaction",
   };
 
   return (
     <div className="max-w-[1366px] mx-auto ">
-      
       <div>
         {" "}
         <Commonheader namepage={"About Us"} />
@@ -41,7 +43,12 @@ const Aboutus = () => {
                 Who we are?
               </h1>
               <p className="font-normal text-navfontcolor pb-5">
-                We are a dynamic startup driven by a young, creative, and passionate mindset. Committed to social responsibility, we provide top-quality software and marketing services for restaurants, businesses, and budding entrepreneurs. Our goal is to empower our clients with innovative solutions and exceptional support.
+                We are a dynamic startup driven by a young, creative, and
+                passionate mindset. Committed to social responsibility, we
+                provide top-quality software and marketing services for
+                restaurants, businesses, and budding entrepreneurs. Our goal is
+                to empower our clients with innovative solutions and exceptional
+                support.
               </p>
               <hr />
               <div className="flex justify-between py-5">
@@ -85,11 +92,11 @@ const Aboutus = () => {
             <h1 className="text-3xl text-center font-semibold">
               Our Work Style
             </h1>
-            <h3 className="max-w-md font-normal py-5 text-navfontcolor text-center">
+            <h3 className="sm:max-w-[80%] max-w-full font-normal py-5 text-navfontcolor text-center">
               We prioritize our employees first, believing that a motivated and skilled team drives exceptional results for our customers. Our focus is on nurturing youth talent and fostering skill development while delivering innovative, high-quality solutions with a customer-centric approach.
             </h3>
           </div>
-          <div className="flex justify-center items-center mt-10 w-[90%] md:w-[60%]">
+          <div className="flex justify-center items-center mt-10 w-[90%] md:w-[80%]">
             <video
               loop
               src="/assets/Video.mp4"
@@ -100,7 +107,7 @@ const Aboutus = () => {
         </div>
       </div>
 
-      <div className="conplr py-10 lg:py-20">
+      {/* <div className="conplr py-10 lg:py-20">
         <div className="flex flex-col justify-center items-center">
           <h1 className="text-3xl text-center font-semibold">Our Team</h1>
           <h3 className="max-w-md font-normal py-5 text-navfontcolor text-center">
@@ -125,7 +132,42 @@ const Aboutus = () => {
             </div>
           ))}
         </div>
+      </div> */}
+
+      <div className="container conplr my-14">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+          <div className="md:col-span-1 flex mishra flex-col gap-8 space-y-6">
+            {features.slice(0, 3).map((feature, index) => (
+              <div key={index} className="flex items-center gap-x-4 text-iconcolor">
+                {feature.icon}
+                <div>
+                  <h3 className="text-xl font-semibold">{feature.title}</h3>
+                  <p className="text-gray-600">{feature.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className="md:col-span-1 flex mishra justify-center space-x-4">
+            <img
+              src="/assets/myfav.png"
+              alt="Center Illustration"
+              className="w-full max-w-md"
+            />
+          </div>
+          <div className="md:col-span-1 flex mishra flex-col gap-8 space-y-6">
+            {features.slice(3).map((feature, index) => (
+              <div key={index} className="flex items-center gap-x-4">
+                {feature.icon}
+                <div>
+                  <h3 className="text-xl font-semibold text-iconcolor">{feature.title}</h3>
+                  <p className="text-gray-600">{feature.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
+<Consulation/>
       <Footer />
     </div>
   );

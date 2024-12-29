@@ -136,65 +136,63 @@ const Footer = () => {
                 </div>
               </div>
             </div>
-            <div className="w-full   flex flex-wrap min-[470px]:flex-row justify-between gap-5 sm:gap-5 md:gap-5 xl:gap-5">
-              <div className="flex flex-col max-[470px]:items-left max-[470px]:justify-left gap-3">
-                <h6 className="text-lg font-medium text-iconcolor mb-3 max-[470px]:text-center border-b-4 border-hovnavfontcolor ">
-                  Services
-                </h6>
+           <div className="w-full flex flex-wrap min-[470px]:flex-row justify-between gap-5 sm:gap-5 md:gap-5 xl:gap-5 max-[470px]:items-center max-[470px]:justify-center">
+  <div className="flex flex-col items-start max-[470px]:items-center max-[470px]:justify-center gap-3">
+    <h6 className="text-lg font-medium text-iconcolor mb-3 max-[470px]:text-center border-b-4 border-hovnavfontcolor">
+      Services
+    </h6>
+    {servicesData.map((data, index) => (
+      <h1
+        onClick={() => {
+          navigation(data.url, {
+            state: {
+              descripation: data.description,
+              sublink: data.subLink,
+              name: data.name,
+            },
+          });
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        }}
+        className="font-normal leading-6 group relative hover:text-hovnavfontcolor cursor-pointer"
+      >
+        {data?.name}
+        <span className="absolute -bottom-1 left-0 w-0 transition-all h-0.5 bg-hovnavfontcolor group-hover:w-full"></span>
+      </h1>
+    ))}
+  </div>
+  <div className="flex flex-col items-start max-[470px]:items-center max-[470px]:justify-center gap-3">
+    <h6 className="text-lg font-medium text-iconcolor mb-3 max-[470px]:text-center border-b-4 border-hovnavfontcolor">
+      Solutions
+    </h6>
+    {solutiondata.map((data, index) => (
+      <Link
+        onClick={() =>
+          window.scrollTo({ top: 0, behavior: "smooth" })
+        }
+        to="/"
+        className="font-normal leading-6 group relative hover:text-hovnavfontcolor"
+      >
+        {data.name}
+        <span className="absolute -bottom-1 left-0 w-0 transition-all h-0.5 bg-hovnavfontcolor group-hover:w-full"></span>
+      </Link>
+    ))}
+  </div>
+  <div className="flex flex-col items-start max-[470px]:items-center sm:justify-left sm:pt-0 pt-10 gap-3">
+    <h6 className="text-lg font-medium text-iconcolor mb-5 max-[470px]:text-center border-b-4 border-hovnavfontcolor">
+      Contact Us
+    </h6>
+    <h1 className="font-normal leading-6 mb-3">
+      <a href="tel:+919792540100">+919792540100</a>
+    </h1>
+    <h1 className="font-normal leading-6 mb-3">
+      <a href="mailto:mvsitgiants@gmail.com">mvsitgiants@gmail.com</a>
+    </h1>
+    <h1 className="font-normal leading-6 mb-7">
+      Bangalore, Karnataka
+    </h1>
+  </div>
+</div>
 
-                {servicesData.map((data, index) => (
-                  <h1
-                    onClick={() => {
-                      navigation(data.url, {
-                        state: {
-                          descripation: data.description,
-                          sublink: data.subLink,
-                          name: data.name,
-                        },
-                      });
-                      window.scrollTo({ top: 0, behavior: "smooth" });
-                    }}
-                    className="font-normal  leading-6 group   relative hover:text-hovnavfontcolor cursor-pointer"
-                  >
-                    {data?.name}
-                    <span className="absolute -bottom-1 left-0 w-0 transition-all h-0.5 bg-hovnavfontcolor group-hover:w-full"></span>
-                  </h1>
-                ))}
-              </div>
-              <div className="flex flex-col max-[470px]:items-center max-[470px]:justify-center gap-3">
-                <h6 className="text-lg font-medium text-iconcolor mb-3 max-[470px]:text-center border-b-4 border-hovnavfontcolor">
-                  Solutions
-                </h6>
-                {solutiondata.map((data, index) => (
-                  <Link
-                    onClick={() =>
-                      window.scrollTo({ top: 0, behavior: "smooth" })
-                    }
-                    to="/"
-                    className="font-normal  leading-6 group   relative hover:text-hovnavfontcolor"
-                  >
-                    {data.name}
-                    <span className="absolute -bottom-1 left-0 w-0 transition-all h-0.5 bg-hovnavfontcolor group-hover:w-full"></span>
-                  </Link>
-                ))}
-              </div>
-              <div className=" flex flex-col sm:justify-left items-start sm:pt-0 pt-10 sm:items-start">
-                <h6 className="text-lg font-medium text-iconcolor mb-5 max-[470px]:text-center border-b-4 border-hovnavfontcolor">
-                  Contact Us
-                </h6>
-                <h1 className="font-normal leading-6 mb-3">
-                  <a href="tel:+919792540100">+919792540100</a>
-                </h1>
-                <h1 className="font-normal leading-6 mb-3">
-                  <a href="mailto:mvsitgiants@gmail.com">
-                    mvsitgiants@gmail.com
-                  </a>
-                </h1>
-                <h1 className="font-normal leading-6 mb-7">
-                  Bengalore, karnataka
-                </h1>
-              </div>
-            </div>
           </div>
         </div>
       </section>

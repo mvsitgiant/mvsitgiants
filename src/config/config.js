@@ -2,7 +2,14 @@ import { FaMobileAlt ,FaCode,FaTv,FaRegHandshake} from "react-icons/fa";
 import { MdOutlineVideoSettings } from "react-icons/md";
 import { TbSpeakerphone } from "react-icons/tb";
 
-
+import {
+  FaFileAlt,
+  FaLightbulb,
+  FaDollarSign,
+  FaClock,
+  FaUserTie,
+  FaHeadset,
+} from "react-icons/fa";
 export const color = {
   lgfirstcolor: "#6EA7FC",
   lgsecondcolor: "#F1245B",
@@ -24,6 +31,38 @@ export const  navbarlink = [
   { item: "About", key: "/about" },
 ];
 
+export const features = [
+  {
+    icon: <FaFileAlt className="text-iconcolor text-4xl" />,
+    title: "Experience",
+    description: "Decades of expertise in delivering innovative IT solutions.",
+  },
+  {
+    icon: <FaLightbulb className="text-iconcolor text-4xl" />,
+    title: "Products",
+    description: "Innovative software products designed to transform your business.",
+  },
+  {
+    icon: <FaDollarSign className="text-iconcolor text-4xl" />,
+    title: "Pricing",
+    description: "Transparent pricing tailored to fit every business need.",
+  },
+  {
+    icon: <FaClock className="text-iconcolor text-4xl" />,
+    title: "Delivery",
+    description: "On-time project delivery ensuring seamless business operations.",
+  },
+  {
+    icon: <FaUserTie className="text-iconcolor text-4xl" />,
+    title: "Approach",
+    description: "Client-focused and result-driven methodology for success.",
+  },
+  {
+    icon: <FaHeadset className="text-iconcolor text-4xl" />,
+    title: "Support",
+    description: "Dedicated 24/7 support to keep your business running smoothly.",
+  },
+];
 
 export const servicesData = [
   {

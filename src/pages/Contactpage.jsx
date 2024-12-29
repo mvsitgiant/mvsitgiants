@@ -13,7 +13,7 @@ const Contactpage = () => {
       </div>
 
       <div className="conmlr flex lg:flex-row flex-col shadow-lg my-20 rounded-3xl">
-        <div className="lg:w-[40%] bg-gradient-to-b from-[#DEDFF6EC]  to-[#8BB3F924] h-svh  p-10 pt-16 flex flex-col justify-between">
+        <div className="lg:w-[40%] bg-gradient-to-b from-[#DEDFF6EC]  to-[#8BB3F924] h-svh p-5 sm:p-10  pt-16 flex flex-col gap-y-10">
           <div>
             <h1 className="font-semibold text-lg text-iconcolor ">Contact Information</h1>{" "}
             <p className="font-normal  text-sm">
@@ -43,7 +43,7 @@ const Contactpage = () => {
                   +919792540100
                 </h5>
               </Link>
-              <Link to="mailto:mvsitgiants@gmail.com" className="flex items-center mb-6">
+              <Link to="mailto:mvsitgiants@gmail.com" className="flex  items-center mb-6">
                 <svg
                   width="30"
                   height="30"
