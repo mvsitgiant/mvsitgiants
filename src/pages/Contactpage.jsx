@@ -1,23 +1,80 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "./../components/Navbar";
 import Footer from "../components/Footer";
 import Commonheader from "../components/Commonheader";
 import { FaLinkedin } from "react-icons/fa";
+import emailjs from "emailjs-com";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const Contactpage = () => {
+  const [formData, setFormData] = useState({
+    fullName: "",
+    email: "",
+    phone: "",
+    subject: "",
+    message: "",
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+  const handleSubmit = async (event) => {
+    // event.preventDefault();  // Ensure you prevent the default form submit
+
+    const templateParams = {
+      name: formData.fullName,
+      email: formData.email,
+      phone: formData.phone,
+      subject: formData.subject,
+      message: formData.message,
+    };
+
+    try {
+      const response = await emailjs.send(
+        "service_m6e0ez8", // Replace with your EmailJS service ID
+        "template_6p3exzl", // Replace with your EmailJS template ID
+        templateParams,
+        "dR13T0Fyfb5JDyUXf" // Replace with your EmailJS user ID
+      );
+
+      if (response.text) {
+        toast.success("Email sent successfully!", {
+          position: "top-right", // Changed to top-center or center
+          autoClose: 5000, // Duration in ms
+        });
+        setFormData({
+          fullName: "",
+          email: "",
+          phone: "",
+          subject: "",
+          message: "",
+        });
+      }
+    } catch (error) {
+      console.error("Error sending email:", error);
+      toast.error("Error sending email", {
+        position: "top-right", // Changed to top-center or center
+        autoClose: 5000, // Duration in ms
+      });
+    }
+  };
   return (
     <div className="max-w-[1366px] mx-auto ">
-      
       <div>
         <Commonheader namepage={"Contact Us"} />
       </div>
-
+      <ToastContainer />
       <div className="conmlr flex lg:flex-row flex-col shadow-lg my-20 rounded-3xl">
-        <div className="lg:w-[40%] bg-gradient-to-b from-[#DEDFF6EC]  to-[#8BB3F924] h-svh p-5 sm:p-10  pt-16 flex flex-col gap-y-10">
+        <div className="lg:w-[40%] bg-gradient-to-b from-[#DEDFF6EC]  to-[#8BB3F924]  p-5 sm:p-10  pt-16 flex flex-col gap-y-10">
           <div>
-            <h1 className="font-semibold text-lg text-iconcolor ">Contact Information</h1>{" "}
+            <h1 className="font-semibold text-lg text-iconcolor ">
+              Contact Information
+            </h1>{" "}
             <p className="font-normal  text-sm">
-              To get in touch, please feel free to reach out to me through the following contact information:
+              To get in touch, please feel free to reach out to me through the
+              following contact information:
             </p>
           </div>
           <div>
@@ -43,7 +100,10 @@ const Contactpage = () => {
                   +919792540100
                 </h5>
               </Link>
-              <Link to="mailto:mvsitgiants@gmail.com" className="flex  items-center mb-6">
+              <Link
+                to="mailto:mvsitgiants@gmail.com"
+                className="flex  items-center mb-6"
+              >
                 <svg
                   width="30"
                   height="30"
@@ -103,7 +163,7 @@ const Contactpage = () => {
                   height="24"
                   viewBox="0 0 24 24"
                   fill="none"
-                 className="text-iconcolor"
+                  className="text-iconcolor"
                 >
                   <path
                     d="M13.5854 10.7242L19.79 3.66699H18.3197L12.9323 9.79466L8.62939 3.66699H3.6665L10.1733 12.9331L3.6665 20.3337H5.13687L10.8261 13.8626L15.3703 20.3337H20.3332L13.5851 10.7242H13.5854ZM11.5716 13.0147L10.9123 12.092L5.66666 4.75005H7.92505L12.1583 10.6753L12.8176 11.598L18.3204 19.2999H16.062L11.5716 13.0151V13.0147Z"
@@ -186,123 +246,118 @@ const Contactpage = () => {
                 to="https://www.linkedin.com/company/mvsitgiants/"
                 className="p-2  group rounded transition-all duration-500"
               >
-               < FaLinkedin className="text-iconcolor" />
+                <FaLinkedin className="text-iconcolor" />
               </Link>
             </div>
           </div>
         </div>
-        <div className="lg:w-[60%] bg-white lg:h-svh flex flex-col   p-10 gap-5">
-          <div className=" flex lg:flex-row flex-col justify-between">
-            <div>
-              <label htmlFor="fname" className="font-normal text-sm">
+
+        <div className="lg:w-[60%] bg-white lg:h-svh flex flex-col p-10 gap-5 rounded-lg shadow-lg">
+          <div className="flex lg:flex-row flex-col justify-between gap-5">
+            <div className="w-full">
+              <label
+                htmlFor="fullName"
+                className="font-medium text-sm text-gray-700"
+              >
                 Full Name
               </label>
-              <br />
               <input
                 type="text"
-                placeholder="full Name"
-                className="px-4 py-2 border-b-[1px] font-normal  border-black  focus:outline-none text-sm "
+                name="fullName"
+                value={formData.fullName}
+                onChange={handleChange}
+                placeholder="Full Name"
+                className="w-full px-4 py-2 border rounded-md shadow-sm focus:outline-none focus:ring focus:ring-indigo-300 focus:border-indigo-500 text-sm"
               />
             </div>
-            <div>
-              <label htmlFor="fname" className="font-normal text-sm">
+            <div className="w-full">
+              <label
+                htmlFor="email"
+                className="font-medium text-sm text-gray-700"
+              >
                 Email
               </label>
-              <br />
               <input
                 type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
                 placeholder="email@gmail.com"
-                className="px-4 py-2 border-b-[1px] font-normal  border-black  focus:outline-none text-sm "
+                className="w-full px-4 py-2 border rounded-md shadow-sm focus:outline-none focus:ring focus:ring-indigo-300 focus:border-indigo-500 text-sm"
               />
             </div>
           </div>
-          <div className="flex justify-between lg:flex-row flex-col">
-            {" "}
-            <div>
-              <label htmlFor="fname" className="font-normal text-sm">
+          <div className="flex lg:flex-row flex-col justify-between gap-5">
+            <div className="w-full">
+              <label
+                htmlFor="phone"
+                className="font-medium text-sm text-gray-700"
+              >
                 Phone No
               </label>
-              <br />
               <input
                 type="tel"
-                placeholder="phone no"
-                className="px-4 py-2 border-b-[1px] font-normal  border-black  focus:outline-none text-sm "
+                name="phone"
+                value={formData.phone}
+                onChange={(e) => {
+                  const value = e.target.value;
+                  // Allow only numeric characters
+                  if (/^\d*$/.test(value)) {
+                    setFormData({ ...formData, phone: value });
+                  }
+                }}
+                placeholder="Phone No"
+                className="w-full px-4 py-2 border rounded-md shadow-sm focus:outline-none focus:ring focus:ring-indigo-300 focus:border-indigo-500 text-sm"
               />
             </div>
-            <div>
-              <label htmlFor="fname" className="font-normal text-sm">
-               Select Subject?
+            <div className="w-full">
+              <label
+                htmlFor="subject"
+                className="font-medium text-sm text-gray-700"
+              >
+                Select Subject
               </label>
-              <br />
               <input
                 type="text"
-                placeholder="subject.."
-                className="px-4 py-2 border-b-[1px] font-normal  border-black  focus:outline-none text-sm "
+                name="subject"
+                value={formData.subject}
+                onChange={handleChange}
+                placeholder="Subject..."
+                className="w-full px-4 py-2 border rounded-md shadow-sm focus:outline-none focus:ring focus:ring-indigo-300 focus:border-indigo-500 text-sm"
               />
             </div>
           </div>
-          {/* <h3 className="font-semibold  py-5">Select Subject?</h3>
-          <div className="flex justify-between lg:flex-row flex-col">
-            <div className=" flex gap-3 ">
-              <input type="radio" />
-              <label htmlFor="web" className="font-normal text-sm inline">
-                {" "}
-                development
-              </label>
-            </div>
-            <div className=" flex gap-3 ">
-              <input type="radio" />
-              <label htmlFor="web" className="font-normal text-sm inline">
-                {" "}
-                development
-              </label>
-            </div>
-            <div className=" flex gap-3 ">
-              <input type="radio" />
-              <label htmlFor="web" className="font-normal text-sm inline">
-                {" "}
-                development
-              </label>
-            </div>
-            <div className=" flex gap-3 ">
-              <input type="radio" />
-              <label htmlFor="web" className="font-normal text-sm inline">
-                {" "}
-                development
-              </label>
-            </div>
-          </div> */}
-          <div>
-            <div>
-              <label htmlFor="fname" className="font-normal text-sm">
-                Message
-              </label>
-              <br />
-              <input
-                type="text"
-                placeholder="Write a query !....."
-                className="px-4 py-2 border-b-[1px] w-full font-normal  border-black  focus:outline-none text-sm "
-              />
-            </div>
-            <h1 className="pt-3">I look forward to hearing from you and discussing any inquiries or opportunities further.</h1>
-            <div className="flex justify-between pt-5">
-              <div></div>
-              <Link
-                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-                to="/contact"
-                className="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-lgfirstcolor to-lgsecondcolor group-hover:from-lgfirstcolor group-hover:to-lgsecondcolor hover:text-white  focus:ring-4 focus:outline-none focus:ring-pink-200 hover:scale-105"
-              >
-                <span className="relative px-10 py-2 transition-all ease-in duration-75  text-white font-normal rounded-md group-hover:bg-opacity-0">
-                  send message
-                </span>
-              </Link>
-            </div>
+          <div className="w-full">
+            <label
+              htmlFor="message"
+              className="font-medium text-sm text-gray-700"
+            >
+              Message
+            </label>
+            <textarea
+              name="message"
+              value={formData.message}
+              onChange={handleChange}
+              placeholder="Write a query..."
+              className="w-full px-4 py-2 border rounded-md shadow-sm focus:outline-none focus:ring focus:ring-indigo-300 focus:border-indigo-500 text-sm"
+            />
+          </div>
+          <h1 className="pt-3 text-sm text-gray-600">
+            I look forward to hearing from you and discussing any inquiries or
+            opportunities further.
+          </h1>
+          <div className="flex justify-end pt-5">
+            <Link
+              onClick={() => handleSubmit()}
+              className="inline-flex items-center px-6 py-2 text-sm font-medium text-white bg-indigo-500 rounded-md hover:bg-indigo-600 focus:ring focus:ring-indigo-300"
+            >
+              Send Message
+            </Link>
           </div>
         </div>
       </div>
 
-     
-      <div class="relative lg:w-[1300px] w-screen ">
+      <div class="relative  w-screen ">
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d497698.77662877017!2d77.30056510181397!3d12.954458680706043!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1670c9b44e6d%3A0xf8dfc3e8517e4fe0!2sBengaluru%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1725135150646!5m2!1sen!2sin"
           width={"98%"}

@@ -7,7 +7,8 @@ import Services from "./pages/Services";
 import Contactpage from "./pages/Contactpage";
 import CommonServices from "./pages/CommonServices";
 import Navbar from "./components/Navbar";
-
+import {  ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 function App() {
   return (
     <Router
@@ -17,6 +18,7 @@ function App() {
       }}
     >
       <Navbar />
+      <ToastContainer />
       <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path="/about" element={<Aboutus />} />
